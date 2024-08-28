@@ -32,7 +32,9 @@ class TenantIdFieldBehavior extends Behavior
                 ->dropDownList($items);
         }
 
-        return Html::activeHiddenInput($this->owner->model, 'tenant_id', key($items));
+        return Html::activeHiddenInput($this->owner->model, 'tenant_id', [
+            'value' => key($items),
+        ]);
     }
 
     /**
