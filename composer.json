@@ -1,0 +1,63 @@
+{
+  "name": "davidhirtz/yii2-cms-tenant",
+  "description": "Multi-tenant support for content management system based on Yii 2.0 framework",
+  "license": "proprietary",
+  "type": "yii2-extension",
+  "homepage": "https://www.github.com/davidhirtz/yii2-cms-tenant",
+  "authors": [
+    {
+      "name": "David Hirtz",
+      "homepage": "https://www.davidhirtz.com/"
+    }
+  ],
+  "require": {
+    "davidhirtz/yii2-cms": "^2.1",
+    "davidhirtz/yii2-tenant": "^1.0"
+  },
+  "require-dev": {
+    "codeception/codeception": "^5.0",
+    "codeception/module-asserts": "*",
+    "codeception/module-filesystem": "^3.0",
+    "codeception/module-phpbrowser": "*",
+    "codeception/module-yii2": "*",
+    "codeception/specify": "^2.0",
+    "codeception/verify": "^3.0",
+    "phpunit/phpunit": "^9",
+    "rector/rector": "^0.19",
+    "symplify/easy-coding-standard": "^12.0",
+    "yiisoft/yii2-debug": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "davidhirtz\\yii2\\cms\\tenant\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "davidhirtz\\yii2\\cms\\tenant\\tests\\": "tests"
+    }
+  },
+  "config": {
+    "platform": {
+      "php": "8.1"
+    },
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true
+    }
+  },
+  "extra": {
+    "bootstrap": "davidhirtz\\yii2\\cms\\tenant\\Bootstrap"
+  },  "repositories": [
+  {
+    "type": "composer",
+    "url": "https://asset-packagist.org"
+  }
+],
+  "scripts": {
+    "check-cs": "ecs check --ansi",
+    "fix-cs": "ecs check --ansi --fix",
+    "phpstan": "phpstan --memory-limit=1G",
+    "rector": "rector",
+    "test": "codecept run"
+  }
+}
