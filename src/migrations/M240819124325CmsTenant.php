@@ -42,6 +42,10 @@ class M240819124325CmsTenant extends Migration
 
     public function safeDown(): void
     {
+        $tableName = $this->getDb()->getSchema()->getRawTableName(Entry::tableName());
+        $this->dropForeignKey("{$tableName}_tenant_id_ibfk", Entry::tableName());
+
+        $this->dropIndex('tenant_id', Entry::tableName());
         $this->dropColumn(Entry::tableName(), 'tenant_id');
     }
 }

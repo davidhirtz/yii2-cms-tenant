@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e982e81eac0b9952ad4a2d4bad0f7ce7",
+    "content-hash": "23adb6685377a04d947ff0b41b8b80a6",
     "packages": [
         {
             "name": "bower-asset/jquery",
@@ -353,16 +353,16 @@
         },
         {
             "name": "davidhirtz/yii2-tenant",
-            "version": "1.0.1",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidhirtz/yii2-tenant.git",
-                "reference": "2c5588e78e0ca309e7a83c6b2c75057b448a4764"
+                "reference": "1574ee4e95badb9b641d4265d50a9eb4d6a2ff29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidhirtz/yii2-tenant/zipball/2c5588e78e0ca309e7a83c6b2c75057b448a4764",
-                "reference": "2c5588e78e0ca309e7a83c6b2c75057b448a4764",
+                "url": "https://api.github.com/repos/davidhirtz/yii2-tenant/zipball/1574ee4e95badb9b641d4265d50a9eb4d6a2ff29",
+                "reference": "1574ee4e95badb9b641d4265d50a9eb4d6a2ff29",
                 "shasum": ""
             },
             "require": {
@@ -373,6 +373,7 @@
                 "symfony/var-dumper": "^6.3",
                 "symplify/easy-coding-standard": "^12.0"
             },
+            "default-branch": true,
             "type": "yii2-extension",
             "extra": {
                 "bootstrap": "davidhirtz\\yii2\\tenant\\Bootstrap"
@@ -396,9 +397,9 @@
             "homepage": "https://www.github.com/davidhirtz/yii2-vite",
             "support": {
                 "issues": "https://github.com/davidhirtz/yii2-tenant/issues",
-                "source": "https://github.com/davidhirtz/yii2-tenant/tree/1.0.1"
+                "source": "https://github.com/davidhirtz/yii2-tenant/tree/main"
             },
-            "time": "2024-08-28T09:28:39+00:00"
+            "time": "2024-08-28T09:31:04+00:00"
         },
         {
             "name": "davidhirtz/yii2-timeago",
@@ -7086,7 +7087,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "davidhirtz/yii2-tenant": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
