@@ -38,10 +38,18 @@ class M240819124325CmsTenant extends Migration
             'id',
             'CASCADE',
         );
+
+        $this->addColumn(Tenant::tableName(), 'entry_count', $this->integer()
+            ->unsigned()
+            ->notNull()
+            ->defaultValue(0)
+            ->after('language'));
     }
 
     public function safeDown(): void
     {
+        $this->dropColumn(Tenant::tableName(), 'entry_count');
+
         $tableName = $this->getDb()->getSchema()->getRawTableName(Entry::tableName());
         $this->dropForeignKey("{$tableName}_tenant_id_ibfk", Entry::tableName());
 
