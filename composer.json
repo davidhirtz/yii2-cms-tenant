@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "davidhirtz/yii2-cms": "^2.1",
+    "davidhirtz/yii2-cms": "dev-dev",
     "davidhirtz/yii2-tenant": "dev-main"
   },
   "require-dev": {

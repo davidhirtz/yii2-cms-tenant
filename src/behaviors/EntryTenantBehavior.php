@@ -5,7 +5,9 @@ namespace davidhirtz\yii2\cms\tenant\behaviors;
 use davidhirtz\yii2\cms\Bootstrap;
 use davidhirtz\yii2\cms\models\Entry;
 use davidhirtz\yii2\cms\tenant\validators\TenantIdValidator;
+use davidhirtz\yii2\datetime\DateTime;
 use davidhirtz\yii2\tenant\models\collections\TenantCollection;
+use davidhirtz\yii2\tenant\models\queries\TenantQuery;
 use davidhirtz\yii2\tenant\models\Tenant;
 use davidhirtz\yii2\tenant\models\traits\TenantRelationTrait;
 use davidhirtz\yii2\skeleton\models\events\CreateValidatorsEvent;
@@ -28,11 +30,32 @@ class EntryTenantBehavior extends Behavior
     public function events(): array
     {
         return [
+            BaseActiveRecord::EVENT_AFTER_VALIDATE => $this->onAfterValidate(...),
             BaseActiveRecord::EVENT_AFTER_DELETE => $this->onAfterDelete(...),
             BaseActiveRecord::EVENT_AFTER_INSERT => $this->onAfterInsert(...),
             BaseActiveRecord::EVENT_AFTER_UPDATE => $this->onAfterUpdate(...),
             CreateValidatorsEvent::EVENT_CREATE_VALIDATORS => $this->onCreateValidators(...),
         ];
+    }
+
+    public function getTenant(): TenantQuery
+    {
+        /** @var TenantQuery $relation */
+        $relation = $this->owner->hasOne(Tenant::class, ['id' => 'tenant_id']);
+        return $relation;
+    }
+
+    public function populateTenantRelation(?Tenant $tenant): void
+    {
+        $this->owner->populateRelation('tenant', $tenant);
+        $this->tenant_id = $tenant?->id;
+    }
+
+    protected function onAfterValidate(): void
+    {
+        if ($this->owner->parent?->getAttribute('tenant_id') !== $this->owner->getAttribute('tenant_id')) {
+            $this->owner->addInvalidAttributeError('parent_id');
+        }
     }
 
     protected function onAfterDelete(ModelEvent $event): void
@@ -47,7 +70,9 @@ class EntryTenantBehavior extends Behavior
 
     protected function onAfterUpdate(AfterSaveEvent $event): void
     {
-        $this->recalculateEntryCount($event);
+        if (in_array('tenant_id', $event->changedAttributes)) {
+            $this->recalculateEntryCount($event);
+        }
     }
 
     protected function onCreateValidators(CreateValidatorsEvent $event): void
@@ -57,14 +82,12 @@ class EntryTenantBehavior extends Behavior
 
     protected function recalculateEntryCount(Event $event): void
     {
-        /** @var Tenant $entry */
-        $tenant = $event->sender->tenant;
+        $tenantId = $this->owner->getAttribute('tenant_id');
+        $entryCount = Entry::find()->where(['tenant_id' => $tenantId])->count();
 
-        $tenant->setAttribute('entry_count', Entry::find()
-            ->where(['tenant_id' => $tenant->id])
-            ->count());
-
-        $tenant->update();
+        Tenant::updateAll(['entry_count' => $entryCount, 'updated_at' => new DateTime()], [
+            'id' => $tenantId,
+        ]);
     }
 
     public function getTenantRouteParams(): false|array

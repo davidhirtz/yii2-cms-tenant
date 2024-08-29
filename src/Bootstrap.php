@@ -5,6 +5,7 @@ namespace davidhirtz\yii2\cms\tenant;
 use davidhirtz\yii2\cms\models\Entry;
 use davidhirtz\yii2\cms\models\queries\EntryQuery;
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
+use davidhirtz\yii2\cms\modules\admin\widgets\forms\fields\EntryParentIdDropDown;
 use davidhirtz\yii2\cms\tenant\behaviors\EntryTenantBehavior;
 use davidhirtz\yii2\cms\tenant\behaviors\TenantEntryBehavior;
 use davidhirtz\yii2\cms\tenant\widgets\forms\TenantIdFieldBehavior;
@@ -31,6 +32,7 @@ class Bootstrap implements BootstrapInterface
         ]);
 
         $this->setEntryQueryDefaultDefinition();
+        $this->setEntryParentIdDropDownDefaultDefinition();
         $this->setPageCacheDefaultDefinition();
 
         $app->setMigrationNamespace('davidhirtz\yii2\cms\tenant\migrations');
@@ -71,6 +73,11 @@ class Bootstrap implements BootstrapInterface
             $definition['class'] ??= $newClass;
             Yii::$container->set($oldClass, $definition);
         }
+    }
+
+    protected function setEntryParentIdDropDownDefaultDefinition(): void
+    {
+        $this->setDefaultClassDefinition(EntryParentIdDropDown::class, widgets\forms\EntryParentIdDropDown::class);
     }
 
     protected function setEntryQueryDefaultDefinition(): void

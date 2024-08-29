@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "23adb6685377a04d947ff0b41b8b80a6",
+    "content-hash": "e681977c77f729d1eb0d534472bcef6e",
     "packages": [
         {
             "name": "bower-asset/jquery",
@@ -111,16 +111,16 @@
         },
         {
             "name": "davidhirtz/yii2-cms",
-            "version": "2.1.26",
+            "version": "dev-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidhirtz/yii2-cms.git",
-                "reference": "6d0334c465a688c94734bb0f37d789c6e967595e"
+                "reference": "e6a0646d6d9016f1db09104f8028efaba715015d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidhirtz/yii2-cms/zipball/6d0334c465a688c94734bb0f37d789c6e967595e",
-                "reference": "6d0334c465a688c94734bb0f37d789c6e967595e",
+                "url": "https://api.github.com/repos/davidhirtz/yii2-cms/zipball/e6a0646d6d9016f1db09104f8028efaba715015d",
+                "reference": "e6a0646d6d9016f1db09104f8028efaba715015d",
                 "shasum": ""
             },
             "require": {
@@ -163,9 +163,9 @@
             "homepage": "https://www.github.com/davidhirtz/yii2-cms",
             "support": {
                 "issues": "https://github.com/davidhirtz/yii2-cms/issues",
-                "source": "https://github.com/davidhirtz/yii2-cms/tree/2.1.26"
+                "source": "https://github.com/davidhirtz/yii2-cms/tree/dev"
             },
-            "time": "2024-08-26T16:53:31+00:00"
+            "time": "2024-08-29T14:51:23+00:00"
         },
         {
             "name": "davidhirtz/yii2-datetime-behavior",
@@ -357,12 +357,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidhirtz/yii2-tenant.git",
-                "reference": "1574ee4e95badb9b641d4265d50a9eb4d6a2ff29"
+                "reference": "6a639df00b6497dbc6403b96b15b8790b887904c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidhirtz/yii2-tenant/zipball/1574ee4e95badb9b641d4265d50a9eb4d6a2ff29",
-                "reference": "1574ee4e95badb9b641d4265d50a9eb4d6a2ff29",
+                "url": "https://api.github.com/repos/davidhirtz/yii2-tenant/zipball/6a639df00b6497dbc6403b96b15b8790b887904c",
+                "reference": "6a639df00b6497dbc6403b96b15b8790b887904c",
                 "shasum": ""
             },
             "require": {
@@ -399,7 +399,7 @@
                 "issues": "https://github.com/davidhirtz/yii2-tenant/issues",
                 "source": "https://github.com/davidhirtz/yii2-tenant/tree/main"
             },
-            "time": "2024-08-28T09:31:04+00:00"
+            "time": "2024-08-29T06:54:02+00:00"
         },
         {
             "name": "davidhirtz/yii2-timeago",
@@ -7088,6 +7088,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "davidhirtz/yii2-cms": 20,
         "davidhirtz/yii2-tenant": 20
     },
     "prefer-stable": false,
