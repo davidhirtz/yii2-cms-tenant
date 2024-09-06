@@ -11,9 +11,8 @@ use davidhirtz\yii2\tenant\models\queries\TenantQuery;
 use davidhirtz\yii2\tenant\models\Tenant;
 use davidhirtz\yii2\tenant\models\traits\TenantRelationTrait;
 use davidhirtz\yii2\skeleton\models\events\CreateValidatorsEvent;
+use Yii;
 use yii\base\Behavior;
-use yii\base\Event;
-use yii\base\ModelEvent;
 use yii\db\AfterSaveEvent;
 use yii\db\BaseActiveRecord;
 
@@ -53,25 +52,46 @@ class EntryTenantBehavior extends Behavior
 
     protected function onAfterValidate(): void
     {
-        if ($this->owner->parent?->getAttribute('tenant_id') !== $this->owner->getAttribute('tenant_id')) {
+        if (
+            $this->owner->parent
+            && $this->owner->parent->getAttribute('tenant_id') !== $this->owner->getAttribute('tenant_id')
+        ) {
             $this->owner->addInvalidAttributeError('parent_id');
         }
     }
 
-    protected function onAfterDelete(ModelEvent $event): void
+    protected function onAfterDelete(): void
     {
-        $this->recalculateEntryCount($event);
+        $this->recalculateEntryCount();
     }
 
-    protected function onAfterInsert(AfterSaveEvent $event): void
+    protected function onAfterInsert(): void
     {
-        $this->recalculateEntryCount($event);
+        $this->recalculateEntryCount();
     }
 
     protected function onAfterUpdate(AfterSaveEvent $event): void
     {
         if (in_array('tenant_id', $event->changedAttributes)) {
-            $this->recalculateEntryCount($event);
+            if ($this->owner->getAttribute('entry_count')) {
+                Yii::debug('Updating descendants tenant...', __METHOD__);
+
+                $descendantIds = $this->owner->findDescendants()
+                    ->select('id')
+                    ->column();
+
+                if ($descendantIds) {
+                    $this->owner::updateAll([
+                        'tenant_id' => $this->owner->getAttribute('tenant_id'),
+                        'updated_by_user_id' => $this->owner->updated_by_user_id,
+                        'updated_at' => $this->owner->updated_at,
+                    ], [
+                        'id' => $descendantIds,
+                    ]);
+                }
+            }
+
+            $this->recalculateEntryCount();
         }
     }
 
@@ -80,7 +100,7 @@ class EntryTenantBehavior extends Behavior
         $event->validators->append(new TenantIdValidator());
     }
 
-    protected function recalculateEntryCount(Event $event): void
+    protected function recalculateEntryCount(): void
     {
         $tenantId = $this->owner->getAttribute('tenant_id');
         $entryCount = Entry::find()->where(['tenant_id' => $tenantId])->count();
@@ -90,6 +110,9 @@ class EntryTenantBehavior extends Behavior
         ]);
     }
 
+    /**
+     * @noinspection PhpUnused
+     */
     public function getTenantRouteParams(): false|array
     {
         return [

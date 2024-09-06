@@ -14,6 +14,6 @@ class EntryParentIdDropDown extends \davidhirtz\yii2\cms\modules\admin\widgets\f
     protected function getEntryQuery(): EntryQuery
     {
         return parent::getEntryQuery()
-            ->andWhere(['tenant_id' => $this->model->tenant_id]);
+            ->andWhere(['tenant_id' => $this->model->getAttribute('tenant_id')]);
     }
 }

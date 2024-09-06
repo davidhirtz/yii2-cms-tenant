@@ -24,13 +24,15 @@ class TenantIdValidator extends Validator
      */
     public function validateAttribute($model, $attribute): void
     {
-        if ($model->isAttributeChanged($attribute)) {
-            $tenantId = $model->getAttribute($attribute);
-            $exists = Tenant::find()->where(['id' => $tenantId])->exists();
+        if (!$model->isAttributeChanged($attribute)) {
+            return;
+        }
 
-            if (!$exists) {
-                $model->addInvalidAttributeError($attribute);
-            }
+        $tenantId = $model->getAttribute($attribute);
+        $exists = Tenant::find()->where(['id' => $tenantId])->exists();
+
+        if (!$exists) {
+            $model->addInvalidAttributeError($attribute);
         }
     }
 
