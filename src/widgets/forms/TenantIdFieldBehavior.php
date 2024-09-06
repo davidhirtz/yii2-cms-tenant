@@ -14,15 +14,19 @@ use yii\widgets\ActiveField;
 
 /**
  * TenantIdFieldBehavior extends {@see EntryActiveForm} to add a tenant select field. It only shows tenants that
- * are not already linked to another entry.  This behavior is attached on startup by {@see Bootstrap}.
- *
- * All methods can be overridden in the form class to customize the behavior.
+ * are not already linked to another entry. This behavior is attached on startup by {@see Bootstrap}.
  *
  * @property EntryActiveForm $owner
  */
 class TenantIdFieldBehavior extends Behavior
 {
     /**
+     * Sets the tenant relation on the entry model from the request or the model itself. If the tenant is not found
+     * in the request, the default tenant is used.
+     *
+     * This is used for both new entries and on change of the tenant id dropdown, as the list of available parent
+     * entries depends on the tenant and might need to be reloaded.
+     *
      * @param EntryActiveForm $owner
      */
     public function attach($owner): void
@@ -30,11 +34,9 @@ class TenantIdFieldBehavior extends Behavior
         /** @var Entry $entry */
         $entry = $owner->model;
 
-        if ($entry->getIsNewRecord()) {
-            $tenantId = Yii::$app->getRequest()->get('tenant');
-            $tenant = TenantCollection::getAll()[$tenantId] ?? Yii::$app->get('tenant');
-            $entry->populateTenantRelation($tenant);
-        }
+        $tenantId = Yii::$app->getRequest()->get('tenant') ?? $entry->tenant_id;
+        $tenant = TenantCollection::getAll()[$tenantId] ?? Yii::$app->get('tenant');
+        $entry->populateTenantRelation($tenant);
 
         parent::attach($owner);
     }

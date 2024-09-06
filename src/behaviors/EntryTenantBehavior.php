@@ -9,7 +9,6 @@ use davidhirtz\yii2\datetime\DateTime;
 use davidhirtz\yii2\tenant\models\collections\TenantCollection;
 use davidhirtz\yii2\tenant\models\queries\TenantQuery;
 use davidhirtz\yii2\tenant\models\Tenant;
-use davidhirtz\yii2\tenant\models\traits\TenantRelationTrait;
 use davidhirtz\yii2\skeleton\models\events\CreateValidatorsEvent;
 use Yii;
 use yii\base\Behavior;
@@ -21,11 +20,11 @@ use yii\db\BaseActiveRecord;
  * bootstrap by {@see Bootstrap}.
  *
  * @property Entry $owner
+ * @property int $tenant_id
+ * @property Tenant $tenant {@see self::getTenant()}
  */
 class EntryTenantBehavior extends Behavior
 {
-    use TenantRelationTrait;
-
     public function events(): array
     {
         return [
