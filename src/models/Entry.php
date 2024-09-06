@@ -9,6 +9,8 @@ use davidhirtz\yii2\cms\tenant\behaviors\EntryTenantBehavior;
  * extended `getRoute()` method.
  *
  * All other functionality is provided by the automatically attached `EntryTenantBehavior` class.
+ *
+ * @mixin EntryTenantBehavior
  */
 class Entry extends \davidhirtz\yii2\cms\models\Entry
 {

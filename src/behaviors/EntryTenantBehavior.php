@@ -47,7 +47,7 @@ class EntryTenantBehavior extends Behavior
     public function populateTenantRelation(?Tenant $tenant): void
     {
         $this->owner->populateRelation('tenant', $tenant);
-        $this->tenant_id = $tenant?->id;
+        $this->owner->setAttribute('tenant_id', $tenant?->id);
     }
 
     protected function onAfterValidate(): void

@@ -4,7 +4,9 @@ namespace davidhirtz\yii2\cms\tenant\widgets\forms;
 
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
 use davidhirtz\yii2\cms\tenant\Bootstrap;
+use davidhirtz\yii2\cms\tenant\models\Entry;
 use davidhirtz\yii2\skeleton\helpers\Html;
+use davidhirtz\yii2\tenant\models\collections\TenantCollection;
 use davidhirtz\yii2\tenant\models\Tenant;
 use Yii;
 use yii\base\Behavior;
@@ -20,6 +22,23 @@ use yii\widgets\ActiveField;
  */
 class TenantIdFieldBehavior extends Behavior
 {
+    /**
+     * @param EntryActiveForm $owner
+     */
+    public function attach($owner): void
+    {
+        /** @var Entry $entry */
+        $entry = $owner->model;
+
+        if ($entry->getIsNewRecord()) {
+            $tenantId = Yii::$app->getRequest()->get('tenant');
+            $tenant = TenantCollection::getAll()[$tenantId] ?? Yii::$app->get('tenant');
+            $entry->populateTenantRelation($tenant);
+        }
+
+        parent::attach($owner);
+    }
+
     public function tenantIdField(array $options = []): ActiveField|string
     {
         /** @var static $form */
