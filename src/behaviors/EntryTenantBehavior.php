@@ -53,7 +53,7 @@ class EntryTenantBehavior extends Behavior
     {
         if (
             $this->owner->parent
-            && $this->owner->parent->getAttribute('tenant_id') !== $this->owner->getAttribute('tenant_id')
+            && $this->owner->parent->getAttribute('tenant_id') != $this->owner->getAttribute('tenant_id')
         ) {
             $this->owner->addInvalidAttributeError('parent_id');
         }
