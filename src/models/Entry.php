@@ -3,6 +3,7 @@
 namespace davidhirtz\yii2\cms\tenant\models;
 
 use davidhirtz\yii2\cms\tenant\behaviors\EntryTenantBehavior;
+use Yii;
 
 /**
  * This class can either be extended by the actual implementation or used as a reference for the implementation of the
@@ -31,5 +32,13 @@ class Entry extends \davidhirtz\yii2\cms\models\Entry
         /** @var EntryTenantBehavior $behavior */
         $behavior = $this->getBehavior('EntryTenantBehavior');
         return $behavior;
+    }
+
+    public function attributeLabels(): array
+    {
+        return [
+            ...parent::attributeLabels(),
+            'tenant_id' => Yii::t('tenant', 'TENANT_NAME'),
+        ];
     }
 }
