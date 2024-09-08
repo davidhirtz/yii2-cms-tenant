@@ -2,7 +2,7 @@
   "name": "yii2-cms-tenant",
   "version": "1.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "./node_modules/.bin/esbuild src/assets/src/dropdown.ts --minify --outfile=src/assets/dist/dropdown.js"
   },
   "author": "David Hirtz",
   "license": "ISC",

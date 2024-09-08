@@ -5,6 +5,7 @@ namespace davidhirtz\yii2\cms\tenant\widgets\forms;
 use davidhirtz\yii2\cms\models\queries\EntryQuery;
 use davidhirtz\yii2\cms\tenant\assets\AssetBundle;
 use davidhirtz\yii2\skeleton\helpers\Html;
+use Yii;
 
 class EntryParentIdDropDown extends \davidhirtz\yii2\cms\modules\admin\widgets\forms\fields\EntryParentIdDropDown
 {
@@ -24,13 +25,15 @@ class EntryParentIdDropDown extends \davidhirtz\yii2\cms\modules\admin\widgets\f
 
     protected function registerClientScript(): void
     {
-        $view = $this->getView();
+        $view = Yii::$app->getView();
+        $bundle = AssetBundle::register($view);
 
-        AssetBundle::register($view);
-        $view->registerJs(
-            "initParentIdDropdown(\"#{$this->getTenantIdDropdownSelector()}\", \"#{$this->getId()}\");",
-            $view::POS_END
-        );
+        $js = <<<JS
+import init from "$bundle->baseUrl/dropdown.js";
+init("{$this->getTenantIdDropdownSelector()}", "#{$this->getId()}");
+JS;
+
+        $view->registerJs($js, $view::POS_MODULE);
     }
 
     protected function getTenantIdDropdownSelector(): string
