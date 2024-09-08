@@ -2,6 +2,7 @@
 
 namespace davidhirtz\yii2\cms\tenant\models;
 
+use davidhirtz\yii2\cms\models\queries\EntryQuery;
 use davidhirtz\yii2\cms\tenant\behaviors\EntryTenantBehavior;
 use Yii;
 
@@ -15,6 +16,8 @@ use Yii;
  */
 class Entry extends \davidhirtz\yii2\cms\models\Entry
 {
+    public array|string|null $slugTargetAttribute = ['tenant_id', 'slug', 'parent_slug'];
+
     public function getRoute(): false|array
     {
         $route = parent::getRoute();
@@ -25,6 +28,11 @@ class Entry extends \davidhirtz\yii2\cms\models\Entry
                 ...$this->getEntryTenantBehavior()->getTenantRouteParams()
             ]
             : false;
+    }
+
+    public function findSiblings(): EntryQuery
+    {
+        return parent::findSiblings()->andWhere(['tenant_id' => $this->tenant_id]);
     }
 
     public function getEntryTenantBehavior(): EntryTenantBehavior
