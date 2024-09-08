@@ -1,0 +1,12 @@
+{
+  "name": "yii2-cms-tenant",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David Hirtz",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "0.23.1"
+  }
+}

@@ -3,6 +3,7 @@
 namespace davidhirtz\yii2\cms\tenant\widgets\forms;
 
 use davidhirtz\yii2\cms\models\queries\EntryQuery;
+use davidhirtz\yii2\cms\tenant\assets\AssetBundle;
 use davidhirtz\yii2\skeleton\helpers\Html;
 
 class EntryParentIdDropDown extends \davidhirtz\yii2\cms\modules\admin\widgets\forms\fields\EntryParentIdDropDown
@@ -23,33 +24,17 @@ class EntryParentIdDropDown extends \davidhirtz\yii2\cms\modules\admin\widgets\f
 
     protected function registerClientScript(): void
     {
-        $this->getView()->registerJs(<<<JS
-            (function () {
-                const tenantIdDropdown = document.getElementById('{$this->getTenantIdDropdownId()}');
-                const entryParentElementId = '{$this->getId()}';
-                
-                tenantIdDropdown.addEventListener('change', function () {
-                   const url = new URL(window.location.href);
-                   url.searchParams.set('tenant', tenantIdDropdown.value);
-                   
-                   const response = fetch(url).then(response => response.text()).then(text => {
-                       const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
+        $view = $this->getView();
 
-        // Find the element using the query selector
-        const element = doc.getElementById(entryParentElementId);
-        const dropdown = document.getElementById(entryParentElementId);
-        dropdown.innerHTML = element.innerHTML;
-        dropdown.dispatchEvent(new Event('change'));
-                   });
-                });
-            })();
-        JS
+        AssetBundle::register($view);
+        $view->registerJs(
+            "initParentIdDropdown(\"#{$this->getTenantIdDropdownSelector()}\", \"#{$this->getId()}\");",
+            $view::POS_END
         );
     }
 
-    protected function getTenantIdDropdownId(): string
+    protected function getTenantIdDropdownSelector(): string
     {
-        return Html::getInputId($this->model, 'tenant_id');
+        return '#' . Html::getInputId($this->model, 'tenant_id');
     }
 }
