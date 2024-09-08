@@ -1,6 +1,6 @@
 export default (
     tenantDropdownSelector: string,
-    parentDropdownSelector: string
+    parentDropdownSelector: string,
 ) => {
     const $tenantIdDropdown: HTMLSelectElement = document.querySelector(tenantDropdownSelector);
     const $parentDropdown: HTMLSelectElement = document.querySelector(parentDropdownSelector);
@@ -18,6 +18,10 @@ export default (
                 const $newDropdown = doc.querySelector(parentDropdownSelector);
 
                 $parentDropdown.innerHTML = $newDropdown.innerHTML || '';
+
+                // Override the default value with the correct tenant absolute URL.
+                $parentDropdown.options[0].dataset.value = $tenantIdDropdown.options[$tenantIdDropdown.selectedIndex].dataset.value;
+
                 $parentDropdown.disabled = false;
                 $parentDropdown.dispatchEvent(new Event('change'));
             });

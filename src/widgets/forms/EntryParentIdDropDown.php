@@ -3,10 +3,15 @@
 namespace davidhirtz\yii2\cms\tenant\widgets\forms;
 
 use davidhirtz\yii2\cms\models\queries\EntryQuery;
+use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
 use davidhirtz\yii2\cms\tenant\assets\AssetBundle;
 use davidhirtz\yii2\skeleton\helpers\Html;
 use Yii;
+use yii\helpers\Json;
 
+/**
+ *
+ */
 class EntryParentIdDropDown extends \davidhirtz\yii2\cms\modules\admin\widgets\forms\fields\EntryParentIdDropDown
 {
     public function init(): void
@@ -28,9 +33,12 @@ class EntryParentIdDropDown extends \davidhirtz\yii2\cms\modules\admin\widgets\f
         $view = Yii::$app->getView();
         $bundle = AssetBundle::register($view);
 
+        $slugs = [];
+        $slugs = Json::htmlEncode($slugs);
+
         $js = <<<JS
 import init from "$bundle->baseUrl/dropdown.js";
-init("{$this->getTenantIdDropdownSelector()}", "#{$this->getId()}");
+init("{$this->getTenantIdDropdownSelector()}", "#{$this->getId()}", $slugs)
 JS;
 
         $view->registerJs($js, $view::POS_MODULE);

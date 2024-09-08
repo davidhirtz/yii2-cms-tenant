@@ -2,3 +2,4 @@
 
 - Added tenant scope to `Entry::findSiblings()`
 - Fixed `tenant_id` validation for strings
+- Fixed default base slug for `EntryActiveForm`

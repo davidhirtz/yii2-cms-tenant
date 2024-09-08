@@ -7,7 +7,6 @@ use davidhirtz\yii2\cms\tenant\Bootstrap;
 use davidhirtz\yii2\cms\tenant\models\Entry;
 use davidhirtz\yii2\skeleton\helpers\Html;
 use davidhirtz\yii2\tenant\models\collections\TenantCollection;
-use davidhirtz\yii2\tenant\models\Tenant;
 use Yii;
 use yii\base\Behavior;
 use yii\widgets\ActiveField;
@@ -48,9 +47,13 @@ class TenantIdFieldBehavior extends Behavior
         $items = $form->getTenantIdItems();
 
         if (count($items) > 1) {
-            return $this->owner->field($this->owner->model, 'tenant_id', $options)
+            foreach (TenantCollection::getAll() as $tenant) {
+                $options['options'][$tenant->id]['data-value'][] = $tenant->getAbsoluteUrl();
+            }
+
+            return $this->owner->field($this->owner->model, 'tenant_id')
                 ->label(Yii::t('tenant', 'TENANT_NAME'))
-                ->dropDownList($items);
+                ->dropDownList($items, $options);
         }
 
         return Html::activeHiddenInput($this->owner->model, 'tenant_id', [
@@ -63,13 +66,9 @@ class TenantIdFieldBehavior extends Behavior
      */
     public function getTenantIdItems(): array
     {
-        $tenants = Tenant::find()
-            ->orderBy(['name' => SORT_ASC])
-            ->all();
-
         $items = [];
 
-        foreach ($tenants as $tenant) {
+        foreach (TenantCollection::getAll() as $tenant) {
             $items[$tenant->id] = !$tenant->isEnabled()
                 ? ('[' . $tenant->getStatusName() . "] $tenant->name")
                 : $tenant->name;
