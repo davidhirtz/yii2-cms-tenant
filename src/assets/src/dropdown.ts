@@ -5,9 +5,18 @@ export default (
     const $tenantIdDropdown: HTMLSelectElement = document.querySelector(tenantDropdownSelector);
     const $parentDropdown: HTMLSelectElement = document.querySelector(parentDropdownSelector);
 
+    let currentValue = $tenantIdDropdown.value;
+
     $tenantIdDropdown.addEventListener('change', function () {
+        if($tenantIdDropdown.value === currentValue) {
+            return;
+        }
+
         const url = new URL(window.location.href);
-        url.searchParams.set('tenant', $tenantIdDropdown.value);
+
+        currentValue = $tenantIdDropdown.value;
+        url.searchParams.set('tenant', currentValue);
+
         $parentDropdown.disabled = true;
 
         fetch(url)

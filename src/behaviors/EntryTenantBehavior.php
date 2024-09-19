@@ -71,6 +71,8 @@ class EntryTenantBehavior extends Behavior
 
     protected function onAfterUpdate(AfterSaveEvent $event): void
     {
+        Yii::debug('ARGH');
+        Yii::debug($event->changedAttributes);
         if (in_array('tenant_id', $event->changedAttributes)) {
             if ($this->owner->getAttribute('entry_count')) {
                 Yii::debug('Updating descendants tenant...', __METHOD__);
@@ -80,13 +82,13 @@ class EntryTenantBehavior extends Behavior
                     ->column();
 
                 if ($descendantIds) {
-                    $this->owner::updateAll([
+                    $attributes = [
                         'tenant_id' => $this->owner->getAttribute('tenant_id'),
                         'updated_by_user_id' => $this->owner->updated_by_user_id,
                         'updated_at' => $this->owner->updated_at,
-                    ], [
-                        'id' => $descendantIds,
-                    ]);
+                    ];
+
+                    $this->owner::updateAll($attributes, ['id' => $descendantIds]);
                 }
             }
 
