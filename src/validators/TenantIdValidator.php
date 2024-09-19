@@ -24,6 +24,9 @@ class TenantIdValidator extends Validator
      */
     public function validateAttribute($model, $attribute): void
     {
+        $tenantId = (int)$model->getAttribute($attribute);
+        $model->setAttribute($attribute, $tenantId);
+
         if (!$model->isAttributeChanged($attribute)) {
             return;
         }

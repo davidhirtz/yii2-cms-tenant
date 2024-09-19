@@ -61,19 +61,17 @@ class EntryTenantBehavior extends Behavior
 
     protected function onAfterDelete(): void
     {
-        $this->recalculateEntryCount();
+        $this->recalculateTenantEntryCount($this->owner->getAttribute('tenant_id'));
     }
 
     protected function onAfterInsert(): void
     {
-        $this->recalculateEntryCount();
+        $this->recalculateTenantEntryCount($this->owner->getAttribute('tenant_id'));
     }
 
     protected function onAfterUpdate(AfterSaveEvent $event): void
     {
-        Yii::debug('ARGH');
-        Yii::debug($event->changedAttributes);
-        if (in_array('tenant_id', $event->changedAttributes)) {
+        if (array_key_exists('tenant_id', $event->changedAttributes)) {
             if ($this->owner->getAttribute('entry_count')) {
                 Yii::debug('Updating descendants tenant...', __METHOD__);
 
@@ -92,7 +90,8 @@ class EntryTenantBehavior extends Behavior
                 }
             }
 
-            $this->recalculateEntryCount();
+            $this->recalculateTenantEntryCount($event->changedAttributes['tenant_id']);
+            $this->recalculateTenantEntryCount($this->owner->getAttribute('tenant_id'));
         }
     }
 
@@ -101,10 +100,11 @@ class EntryTenantBehavior extends Behavior
         $event->validators->append(new TenantIdValidator());
     }
 
-    protected function recalculateEntryCount(): void
+    protected function recalculateTenantEntryCount(int $tenantId): void
     {
-        $tenantId = $this->owner->getAttribute('tenant_id');
-        $entryCount = Entry::find()->where(['tenant_id' => $tenantId])->count();
+        $entryCount = Entry::find()
+            ->where(['tenant_id' => $tenantId])
+            ->count();
 
         Tenant::updateAll(['entry_count' => $entryCount, 'updated_at' => new DateTime()], [
             'id' => $tenantId,
