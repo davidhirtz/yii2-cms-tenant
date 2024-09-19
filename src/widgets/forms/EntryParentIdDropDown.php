@@ -3,7 +3,6 @@
 namespace davidhirtz\yii2\cms\tenant\widgets\forms;
 
 use davidhirtz\yii2\cms\models\queries\EntryQuery;
-use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
 use davidhirtz\yii2\cms\tenant\assets\AssetBundle;
 use davidhirtz\yii2\skeleton\helpers\Html;
 use Yii;

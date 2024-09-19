@@ -26,4 +26,7 @@ export default (
                 $parentDropdown.dispatchEvent(new Event('change'));
             });
     });
+
+    // Trigger the tenant dropdown change event once to apply the initial parent dropdown values.
+    $tenantIdDropdown.dispatchEvent(new Event('change'));
 }
