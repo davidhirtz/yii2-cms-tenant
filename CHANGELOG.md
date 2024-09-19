@@ -1,3 +1,7 @@
+## 1.0.3 (in development)
+
+- Enhanced `TenantIdFieldBehavior` tenant selection based on request parameter
+
 ## 1.0.2 (Sep 19, 2024)
 
 - Fixed default base slug for `EntryActiveForm` (Issue #1)

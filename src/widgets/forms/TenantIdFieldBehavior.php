@@ -33,7 +33,11 @@ class TenantIdFieldBehavior extends Behavior
         /** @var Entry $entry */
         $entry = $owner->model;
 
-        $tenantId = Yii::$app->getRequest()->get('tenant') ?? $entry->tenant_id;
+        if ($entry->getIsNewRecord()) {
+            $tenantId = Yii::$app->getRequest()->get('tenant');
+        }
+
+        $tenantId ??= $entry->tenant_id;
         $tenant = TenantCollection::getAll()[$tenantId] ?? Yii::$app->get('tenant');
         $entry->populateTenantRelation($tenant);
 
