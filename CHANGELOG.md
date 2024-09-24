@@ -1,4 +1,4 @@
-## 1.0.3 (in development)
+## 1.0.3 (Sep 24, 2024)
 
 - Enhanced `TenantIdFieldBehavior` tenant selection based on request parameter
 
