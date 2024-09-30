@@ -33,7 +33,11 @@ trait TenantDropdownTrait
         foreach (TenantCollection::getAll() as $tenant) {
             $items[] = [
                 'label' => $tenant->name,
-                'url' => Url::current([$this->tenantParamName => $tenant->id, 'page' => null]),
+                'url' => Url::current([
+                    $this->tenantParamName => $tenant->id,
+                    'parent' => null,
+                    'page' => null,
+                ]),
             ];
         }
 
