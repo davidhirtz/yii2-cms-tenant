@@ -1,3 +1,7 @@
+## 1.0.4 (Oct 2, 2024)
+
+- Fixed `EntryQuery::selectSitemapAttributes()`
+
 ## 1.0.3 (Sep 24, 2024)
 
 - Enhanced `TenantIdFieldBehavior` tenant selection based on request parameter
