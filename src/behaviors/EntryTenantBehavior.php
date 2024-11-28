@@ -106,9 +106,19 @@ class EntryTenantBehavior extends Behavior
             ->where(['tenant_id' => $tenantId])
             ->count();
 
-        Tenant::updateAll(['entry_count' => $entryCount, 'updated_at' => new DateTime()], [
-            'id' => $tenantId,
-        ]);
+        $attributes = [
+            $this->getTenantEntryCountAttributeName() => $entryCount,
+            'updated_at' => new DateTime(),
+        ];
+
+        Tenant::updateAll($attributes, ['id' => $tenantId]);
+    }
+
+    public function getTenantEntryCountAttributeName(): string
+    {
+        return $this->owner::getModule()->enableI18nTables
+            ? Yii::$app->getI18n()->getAttributeName('entry_count')
+            : 'entry_count';
     }
 
     /**
