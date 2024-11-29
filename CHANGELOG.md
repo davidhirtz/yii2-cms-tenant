@@ -1,3 +1,7 @@
+## 1.1.0 (Nov 29, 2024)
+
+- Fixed tenants for I18N entry tables
+
 ## 1.0.4 (Oct 2, 2024)
 
 - Fixed `EntryQuery::selectSitemapAttributes()`
