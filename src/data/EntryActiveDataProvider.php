@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace davidhirtz\yii2\cms\tenant\data;
 
 use davidhirtz\yii2\cms\tenant\models\queries\EntryQuery;
