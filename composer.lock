@@ -353,16 +353,16 @@
         },
         {
             "name": "davidhirtz/yii2-tenant",
-            "version": "1.1.6",
+            "version": "1.1.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidhirtz/yii2-tenant.git",
-                "reference": "cf4703ef824aae7d893aeec2c13eacf8799ffc8a"
+                "reference": "756eaa99642ee3e241ebef3f683494ad5e77d074"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidhirtz/yii2-tenant/zipball/cf4703ef824aae7d893aeec2c13eacf8799ffc8a",
-                "reference": "cf4703ef824aae7d893aeec2c13eacf8799ffc8a",
+                "url": "https://api.github.com/repos/davidhirtz/yii2-tenant/zipball/756eaa99642ee3e241ebef3f683494ad5e77d074",
+                "reference": "756eaa99642ee3e241ebef3f683494ad5e77d074",
                 "shasum": ""
             },
             "require": {
@@ -396,9 +396,9 @@
             "homepage": "https://www.github.com/davidhirtz/yii2-vite",
             "support": {
                 "issues": "https://github.com/davidhirtz/yii2-tenant/issues",
-                "source": "https://github.com/davidhirtz/yii2-tenant/tree/1.1.6"
+                "source": "https://github.com/davidhirtz/yii2-tenant/tree/1.1.7"
             },
-            "time": "2024-11-29T10:20:03+00:00"
+            "time": "2024-12-23T10:26:49+00:00"
         },
         {
             "name": "davidhirtz/yii2-timeago",

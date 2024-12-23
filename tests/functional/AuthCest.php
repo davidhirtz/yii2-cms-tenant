@@ -42,11 +42,16 @@ class AuthCest extends BaseCest
         $auth = Yii::$app->getAuthManager()->getPermission(Tenant::AUTH_TENANT_UPDATE);
         Yii::$app->getAuthManager()->assign($auth, $user->id);
 
+        Yii::$container->set(TenantGridView::class, [
+            'id' => 'tenant-grid',
+        ]);
+
+        $I->amOnPage('/admin/tenant/index');
+
         $widget = Yii::$container->get(TenantGridView::class, [], [
             'dataProvider' => Yii::createObject(TenantActiveDataProvider::class),
         ]);
 
-        $I->amOnPage('/admin/tenant/index');
         $I->seeElement("#$widget->id");
     }
 

@@ -16,10 +16,8 @@ use yii\validators\Validator;
  */
 class TenantIdValidator extends Validator
 {
-    /**
-     * @var array|string
-     */
     public $attributes = ['tenant_id'];
+    public $skipOnEmpty = false;
 
     /**
      * @param Entry $model

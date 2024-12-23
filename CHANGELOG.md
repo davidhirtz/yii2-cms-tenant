@@ -1,6 +1,7 @@
 ## 1.1.1 (Dec 23, 2024)
 
 - Fixed typecast for `tenant_id` in `EntryActiveDataProvider`
+- Fixed `TenantIdValidator` for empty `tenant_id`
 
 ## 1.1.0 (Nov 29, 2024)
 
