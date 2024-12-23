@@ -16,7 +16,7 @@ class EntryActiveDataProvider extends \davidhirtz\yii2\cms\modules\admin\data\En
 
     public function init(): void
     {
-        $this->tenantId ??= Yii::$app->getRequest()->get('tenant') ?? Yii::$app->get('tenant')->id;
+        $this->tenantId ??= (int)(Yii::$app->getRequest()->get('tenant') ?? Yii::$app->get('tenant')->id);
         parent::init();
     }
 

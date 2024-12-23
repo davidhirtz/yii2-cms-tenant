@@ -6,8 +6,8 @@ namespace davidhirtz\yii2\cms\tenant\migrations;
 
 use davidhirtz\yii2\cms\migrations\traits\I18nTablesTrait;
 use davidhirtz\yii2\cms\models\Entry;
-use davidhirtz\yii2\tenant\models\Tenant;
 use davidhirtz\yii2\skeleton\db\traits\MigrationTrait;
+use davidhirtz\yii2\tenant\models\Tenant;
 use Yii;
 use yii\db\Migration;
 
@@ -25,7 +25,7 @@ class M240819124325CmsTenant extends Migration
         $tenantId = Tenant::find()->select('id')->scalar();
 
         $this->i18nTablesCallback(function () use ($tenantId) {
-            $this->addColumn(Entry::tableName(), 'tenant_id', $this->integer()
+            $this->addColumn(Entry::tableName(), 'tenant_id', (string)$this->integer()
                 ->unsigned()
                 ->notNull()
                 ->after('type'));
@@ -49,7 +49,7 @@ class M240819124325CmsTenant extends Migration
         $after = 'language';
 
         foreach ($this->getEntryCountAttributeNames() as $attributeName) {
-            $this->addColumn(Tenant::tableName(), $attributeName, $this->integer()
+            $this->addColumn(Tenant::tableName(), $attributeName, (string)$this->integer()
                 ->unsigned()
                 ->notNull()
                 ->defaultValue(0)

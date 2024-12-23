@@ -16,7 +16,7 @@ trait EntryCountColumnTrait
         return [
             'class' => CounterColumn::class,
             'attribute' => Entry::instance()->getTenantEntryCountAttributeName(),
-            'label'  => Yii::t('cms', 'Entries'),
+            'label' => Yii::t('cms', 'Entries'),
             'route' => fn (Tenant $tenant) => ['/admin/entry/index', 'tenant' => $tenant->id],
         ];
     }

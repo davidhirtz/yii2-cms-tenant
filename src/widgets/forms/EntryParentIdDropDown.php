@@ -10,9 +10,6 @@ use davidhirtz\yii2\skeleton\helpers\Html;
 use Yii;
 use yii\helpers\Json;
 
-/**
- *
- */
 class EntryParentIdDropDown extends \davidhirtz\yii2\cms\modules\admin\widgets\forms\fields\EntryParentIdDropDown
 {
     public function init(): void

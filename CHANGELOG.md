@@ -1,3 +1,7 @@
+## 1.1.1 (Dec 23, 2024)
+
+- Fixed typecast for `tenant_id` in `EntryActiveDataProvider`
+
 ## 1.1.0 (Nov 29, 2024)
 
 - Fixed tenants for I18N entry tables

@@ -7,13 +7,13 @@
 namespace davidhirtz\yii2\cms\tenant\tests\functional;
 
 use davidhirtz\yii2\cms\tenant\tests\support\FunctionalTester;
-use davidhirtz\yii2\tenant\models\Tenant;
-use davidhirtz\yii2\tenant\modules\admin\data\TenantActiveDataProvider;
-use davidhirtz\yii2\tenant\modules\admin\widgets\grids\TenantGridView;
 use davidhirtz\yii2\skeleton\codeception\fixtures\UserFixtureTrait;
 use davidhirtz\yii2\skeleton\codeception\functional\BaseCest;
 use davidhirtz\yii2\skeleton\models\User;
 use davidhirtz\yii2\skeleton\modules\admin\widgets\forms\LoginActiveForm;
+use davidhirtz\yii2\tenant\models\Tenant;
+use davidhirtz\yii2\tenant\modules\admin\data\TenantActiveDataProvider;
+use davidhirtz\yii2\tenant\modules\admin\widgets\grids\TenantGridView;
 use Yii;
 
 class AuthCest extends BaseCest
