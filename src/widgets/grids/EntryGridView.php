@@ -17,26 +17,17 @@ class EntryGridView extends \davidhirtz\yii2\cms\modules\admin\widgets\grids\Ent
             [
                 [
                     'content' => $this->tenantDropdown(),
-                    'options' => ['class' => 'col-12 col-md'],
                     'visible' => count(TenantCollection::getAll()) > 1,
                 ],
                 [
                     'content' => $this->typeDropdown(),
-                    'options' => ['class' => 'col-12 col-md'],
                     'visible' => $this->showTypeDropdown,
                 ],
                 [
                     'content' => $this->categoryDropdown(),
-                    'options' => ['class' => 'col-12 col-md'],
                     'visible' => $this->showCategoryDropdown,
                 ],
-                [
-                    'content' => $this->getSearchInput(),
-                    'options' => ['class' => 'col-12 col-md'],
-                ],
-                'options' => [
-                    'class' => 'justify-content-between',
-                ],
+                $this->search->getColumn(),
             ],
         ];
     }
