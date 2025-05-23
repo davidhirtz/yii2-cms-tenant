@@ -1,3 +1,8 @@
+# 1.2.0 (in development)
+
+- Always set `\davidhirtz\yii2\cms\Module::$enableI18nTables` to `false` as I18N tables for entries are not supported
+  with tenants enabled.
+
 ## 1.1.1 (Dec 23, 2024)
 
 - Fixed typecast for `tenant_id` in `EntryActiveDataProvider`

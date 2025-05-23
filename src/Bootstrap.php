@@ -50,6 +50,11 @@ class Bootstrap implements BootstrapInterface
             $this->setDefaultClassDefinition($oldClass, $newClass);
         }
 
+        $app->setModule('cms', [
+            ...Yii::$app->getModules()['cms'],
+            'enableI18nTables' => false,
+        ]);
+
         $app->setMigrationNamespace('davidhirtz\yii2\cms\tenant\migrations');
     }
 
