@@ -1,6 +1,7 @@
 # 1.2.0 (May 26, 2025)
 
 - Requires PHP 8.3+
+- Added GitHub CI
 - Changed `\davidhirtz\yii2\cms\Module::$enableI18nTables` to `false` as I18N tables for entries are not supported
   with tenants enabled.
 
