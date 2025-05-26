@@ -1,6 +1,7 @@
-# 1.2.0 (in development)
+# 1.2.0 (May 26, 2025)
 
-- Always set `\davidhirtz\yii2\cms\Module::$enableI18nTables` to `false` as I18N tables for entries are not supported
+- Requires PHP 8.3+
+- Changed `\davidhirtz\yii2\cms\Module::$enableI18nTables` to `false` as I18N tables for entries are not supported
   with tenants enabled.
 
 ## 1.1.1 (Dec 23, 2024)

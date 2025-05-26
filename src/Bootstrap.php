@@ -37,7 +37,6 @@ class Bootstrap implements BootstrapInterface
         ]);
 
         $definitions = [
-            Entry::class => models\Entry::class,
             EntryActiveDataProvider::class => data\EntryActiveDataProvider::class,
             EntryGridView::class => widgets\grids\EntryGridView::class,
             EntryParentIdDropDown::class => widgets\forms\EntryParentIdDropDown::class,
