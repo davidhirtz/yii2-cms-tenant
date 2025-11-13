@@ -38,7 +38,6 @@ class Bootstrap implements BootstrapInterface
         ]);
 
         $definitions = [
-            Entry::class => models\Entry::class,
             EntryActiveDataProvider::class => data\EntryActiveDataProvider::class,
             EntryGridView::class => widgets\grids\EntryGridView::class,
             EntryParentIdDropDown::class => widgets\forms\EntryParentIdDropDown::class,
@@ -50,6 +49,11 @@ class Bootstrap implements BootstrapInterface
         foreach ($definitions as $oldClass => $newClass) {
             $this->setDefaultClassDefinition($oldClass, $newClass);
         }
+
+        $app->setModule('cms', [
+            ...Yii::$app->getModules()['cms'],
+            'enableI18nTables' => false,
+        ]);
 
         $app->setMigrationNamespace('davidhirtz\yii2\cms\tenant\migrations');
     }
