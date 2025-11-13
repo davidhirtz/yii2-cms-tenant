@@ -20,6 +20,7 @@ use davidhirtz\yii2\tenant\modules\admin\widgets\grids\TenantGridView;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\Event;
+use yii\base\Widget;
 
 class Bootstrap implements BootstrapInterface
 {
@@ -64,7 +65,7 @@ class Bootstrap implements BootstrapInterface
 
     protected function attachTenantIdFieldBehavior(): void
     {
-        Event::on(EntryActiveForm::class, EntryActiveForm::EVENT_INIT, function (Event $event) {
+        Event::on(EntryActiveForm::class, Widget::EVENT_INIT, function (Event $event) {
             /** @var EntryActiveForm $form */
             $form = $event->sender;
             $form->attachBehavior('TenantIdFieldBehavior', TenantIdFieldBehavior::class);
