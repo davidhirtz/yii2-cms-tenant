@@ -1,3 +1,7 @@
+# 1.2.2 (Nov 24, 2025)
+
+- Added `EntryGridViewTrait` and `SectionParentEntryGridView`
+
 # 1.2.1 (Jul 15, 2025)
 
 - Added slug index creation

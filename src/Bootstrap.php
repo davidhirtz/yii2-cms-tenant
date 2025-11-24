@@ -10,6 +10,7 @@ use davidhirtz\yii2\cms\modules\admin\data\EntryActiveDataProvider;
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\fields\EntryParentIdDropDown;
 use davidhirtz\yii2\cms\modules\admin\widgets\grids\EntryGridView;
+use davidhirtz\yii2\cms\modules\admin\widgets\grids\SectionParentEntryGridView;
 use davidhirtz\yii2\cms\tenant\behaviors\EntryTenantBehavior;
 use davidhirtz\yii2\cms\tenant\behaviors\TenantEntryBehavior;
 use davidhirtz\yii2\cms\tenant\widgets\forms\TenantIdFieldBehavior;
@@ -43,6 +44,7 @@ class Bootstrap implements BootstrapInterface
             EntryQuery::class => models\queries\EntryQuery::class,
             TenantGridView::class => widgets\grids\TenantGridView::class,
             PageCache::class => filters\PageCache::class,
+            SectionParentEntryGridView::class => widgets\grids\SectionParentEntryGridView::class,
         ];
 
         foreach ($definitions as $oldClass => $newClass) {
