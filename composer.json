@@ -10,7 +10,10 @@
       "homepage": "https://www.davidhirtz.com/"
     }
   ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "require": {
+    "php": "^8.3",
     "davidhirtz/yii2-cms": "v3.x-dev",
     "davidhirtz/yii2-tenant": "v2.x-dev"
   },
@@ -38,9 +41,6 @@
     }
   },
   "config": {
-    "platform": {
-      "php": "8.1"
-    },
     "allow-plugins": {
       "yiisoft/yii2-composer": true
     }

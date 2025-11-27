@@ -15,7 +15,7 @@ trait TenantDropdownTrait
     public string $tenantParamName = 'tenant';
 
 
-    public function tenantDropdown(): string
+    public function getTenantDropdown(): string
     {
         $tenantId = $this->tenantId ?? Yii::$app->request->get($this->tenantParamName);
         $tenant = TenantCollection::getAll()[$tenantId] ?? Yii::$app->get('tenant');

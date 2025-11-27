@@ -15,19 +15,10 @@ class EntryGridView extends \davidhirtz\yii2\cms\modules\admin\widgets\grids\Ent
     {
         $this->header ??= [
             [
-                [
-                    'content' => $this->tenantDropdown(),
-                    'visible' => count(TenantCollection::getAll()) > 1,
-                ],
-                [
-                    'content' => $this->typeDropdown(),
-                    'visible' => $this->showTypeDropdown,
-                ],
-                [
-                    'content' => $this->categoryDropdown(),
-                    'visible' => $this->showCategoryDropdown,
-                ],
-                $this->search->getColumn(),
+                count(TenantCollection::getAll()) > 1 ? $this->getTenantDropdown() : null,
+                $this->showTypeDropdown ? $this->getTypeDropdown() : null,
+                $this->showCategoryDropdown  ? $this->getCategoryDropdown() : null,
+                $this->search->getToolbarItem(),
             ],
         ];
     }
