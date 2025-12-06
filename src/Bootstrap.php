@@ -7,6 +7,7 @@ namespace davidhirtz\yii2\cms\tenant;
 use davidhirtz\yii2\cms\models\Entry;
 use davidhirtz\yii2\cms\models\queries\EntryQuery;
 use davidhirtz\yii2\cms\modules\admin\data\EntryActiveDataProvider;
+use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\fields\EntryParentIdSelectField;
 use davidhirtz\yii2\cms\modules\admin\widgets\grids\EntryGridView;
 use davidhirtz\yii2\cms\modules\admin\widgets\grids\SectionParentEntryGridView;
@@ -35,13 +36,15 @@ class Bootstrap implements BootstrapInterface
         ]);
 
         $definitions = [
+            Entry::class => models\Entry::class,
             EntryActiveDataProvider::class => data\EntryActiveDataProvider::class,
+            EntryActiveForm::class => modules\admin\widgets\forms\EntryActiveForm::class,
             EntryGridView::class => modules\admin\widgets\grids\EntryGridView::class,
             EntryParentIdSelectField::class => modules\admin\widgets\forms\fields\EntryParentIdSelectField::class,
             EntryQuery::class => models\queries\EntryQuery::class,
-            TenantGridView::class => modules\admin\widgets\grids\TenantGridView::class,
             PageCache::class => filters\PageCache::class,
             SectionParentEntryGridView::class => modules\admin\widgets\grids\SectionParentEntryGridView::class,
+            TenantGridView::class => modules\admin\widgets\grids\TenantGridView::class,
         ];
 
         foreach ($definitions as $oldClass => $newClass) {

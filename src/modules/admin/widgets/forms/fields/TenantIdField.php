@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace davidhirtz\yii2\cms\tenant\modules\admin\widgets\forms\fields;
 
+use davidhirtz\yii2\cms\tenant\assets\TenantDropdownAssetBundle;
 use davidhirtz\yii2\cms\tenant\models\Entry;
 use davidhirtz\yii2\skeleton\widgets\forms\fields\SelectField;
 use davidhirtz\yii2\tenant\models\collections\TenantCollection;
@@ -16,8 +17,10 @@ class TenantIdField extends SelectField
 {
     protected function configure(): void
     {
-        $this->property ??= 'tenant_id';
+        $this->attributes['data-id'] ??= 'tenant';
+
         $this->label ??= Yii::t('tenant', 'TENANT_NAME');
+        $this->property ??= 'tenant_id';
 
         if (!$this->items) {
             foreach (TenantCollection::getAll() as $tenant) {
@@ -30,6 +33,13 @@ class TenantIdField extends SelectField
             }
         }
 
+        $this->registerClientScript();
+
         parent::configure();
+    }
+
+    protected function registerClientScript(): void
+    {
+        $this->view->registerAssetBundle(TenantDropdownAssetBundle::class);
     }
 }

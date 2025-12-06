@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "09eee2ddfbc8ad2887b27f77a597d0d1",
+    "content-hash": "2320545878e8c69428a6bc9091bf5793",
     "packages": [
         {
             "name": "bower-asset/jquery",
@@ -94,12 +94,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidhirtz/yii2-cms.git",
-                "reference": "b08a8ba936ab828314f5c9d562d8c61afefa16db"
+                "reference": "6a6a11c3e38076440ac04907a911892ccbe690be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidhirtz/yii2-cms/zipball/b08a8ba936ab828314f5c9d562d8c61afefa16db",
-                "reference": "b08a8ba936ab828314f5c9d562d8c61afefa16db",
+                "url": "https://api.github.com/repos/davidhirtz/yii2-cms/zipball/6a6a11c3e38076440ac04907a911892ccbe690be",
+                "reference": "6a6a11c3e38076440ac04907a911892ccbe690be",
                 "shasum": ""
             },
             "require": {
@@ -144,7 +144,7 @@
                 "issues": "https://github.com/davidhirtz/yii2-cms/issues",
                 "source": "https://github.com/davidhirtz/yii2-cms/tree/v3"
             },
-            "time": "2025-11-29T11:27:31+00:00"
+            "time": "2025-12-06T10:04:56+00:00"
         },
         {
             "name": "davidhirtz/yii2-datetime-behavior",
@@ -255,12 +255,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidhirtz/yii2-skeleton.git",
-                "reference": "1533550ddceefb9092661e43d8c660704e605f39"
+                "reference": "e8f3b67026ded4eaef27356fa7c0da0b36739833"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidhirtz/yii2-skeleton/zipball/1533550ddceefb9092661e43d8c660704e605f39",
-                "reference": "1533550ddceefb9092661e43d8c660704e605f39",
+                "url": "https://api.github.com/repos/davidhirtz/yii2-skeleton/zipball/e8f3b67026ded4eaef27356fa7c0da0b36739833",
+                "reference": "e8f3b67026ded4eaef27356fa7c0da0b36739833",
                 "shasum": ""
             },
             "require": {
@@ -324,7 +324,7 @@
                 "issues": "https://github.com/davidhirtz/yii2-skeleton/issues",
                 "source": "https://github.com/davidhirtz/yii2-skeleton/tree/v3"
             },
-            "time": "2025-12-06T08:29:41+00:00"
+            "time": "2025-12-06T10:05:18+00:00"
         },
         {
             "name": "davidhirtz/yii2-tenant",
@@ -332,21 +332,29 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/davidhirtz/yii2-tenant.git",
-                "reference": "4d3b27ddb9f901b0ffa0da1707b9ba951a721fbf"
+                "reference": "506424aaf9162f9e52fc643dabe5647dc9e6652e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/davidhirtz/yii2-tenant/zipball/4d3b27ddb9f901b0ffa0da1707b9ba951a721fbf",
-                "reference": "4d3b27ddb9f901b0ffa0da1707b9ba951a721fbf",
+                "url": "https://api.github.com/repos/davidhirtz/yii2-tenant/zipball/506424aaf9162f9e52fc643dabe5647dc9e6652e",
+                "reference": "506424aaf9162f9e52fc643dabe5647dc9e6652e",
                 "shasum": ""
             },
             "require": {
-                "davidhirtz/yii2-skeleton": "v3.x-dev"
+                "davidhirtz/yii2-skeleton": "v3.x-dev",
+                "php": "^8.3"
             },
             "require-dev": {
-                "rector/rector": "^1.2",
-                "symfony/var-dumper": "^6.3",
-                "symplify/easy-coding-standard": "^12.0"
+                "codeception/module-asserts": "^3.0",
+                "codeception/module-filesystem": "^3.0",
+                "codeception/module-phpbrowser": "^3.0",
+                "codeception/module-yii2": "^1.1",
+                "codeception/specify": "^2.0",
+                "codeception/verify": "^3.0",
+                "phpro/grumphp-shim": "^2.4",
+                "rector/rector": "^2.2",
+                "symplify/easy-coding-standard": "^12.6",
+                "yiisoft/yii2-debug": "^2.1"
             },
             "type": "yii2-extension",
             "extra": {
@@ -373,7 +381,7 @@
                 "issues": "https://github.com/davidhirtz/yii2-tenant/issues",
                 "source": "https://github.com/davidhirtz/yii2-tenant/tree/v3"
             },
-            "time": "2025-11-17T16:41:22+00:00"
+            "time": "2025-12-06T18:02:26+00:00"
         },
         {
             "name": "davidhirtz/yii2-timeago",
@@ -4206,16 +4214,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v5.6.2",
+            "version": "v5.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "3a454ca033b9e06b63282ce19562e892747449bb"
+                "reference": "dca41cd15c2ac9d055ad70dbfd011130757d1f82"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/3a454ca033b9e06b63282ce19562e892747449bb",
-                "reference": "3a454ca033b9e06b63282ce19562e892747449bb",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/dca41cd15c2ac9d055ad70dbfd011130757d1f82",
+                "reference": "dca41cd15c2ac9d055ad70dbfd011130757d1f82",
                 "shasum": ""
             },
             "require": {
@@ -4258,9 +4266,9 @@
             ],
             "support": {
                 "issues": "https://github.com/nikic/PHP-Parser/issues",
-                "source": "https://github.com/nikic/PHP-Parser/tree/v5.6.2"
+                "source": "https://github.com/nikic/PHP-Parser/tree/v5.7.0"
             },
-            "time": "2025-10-21T19:32:17+00:00"
+            "time": "2025-12-06T11:56:16+00:00"
         },
         {
             "name": "phar-io/manifest",

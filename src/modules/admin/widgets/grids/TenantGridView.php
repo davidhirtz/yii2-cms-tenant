@@ -10,16 +10,16 @@ class TenantGridView extends \davidhirtz\yii2\tenant\modules\admin\widgets\grids
 {
     use TenantEntryGridViewTrait;
 
-    public function init(): void
+    protected function configure(): void
     {
-        $this->columns = $this->columns ?: [
-            $this->statusColumn(),
-            $this->nameColumn(),
+        $this->columns ??= [
+            $this->getStatusColumn(),
+            $this->getNameColumn(),
             $this->getEntryCountColumn(),
-            $this->updatedAtColumn(),
-            $this->buttonsColumn(),
+            $this->getUpdatedAtColumn(),
+            $this->getButtonColumn(),
         ];
 
-        parent::init();
+        parent::configure();
     }
 }

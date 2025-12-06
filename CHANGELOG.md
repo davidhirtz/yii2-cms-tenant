@@ -2,7 +2,7 @@
 
 - Skipped version 2 for major refactor to align with other packages
 - Removed `TenantIdFieldBehavior`
-- Renamed `TenantDropdownTrait` and `EntryCountColumnTrait`
+- Renamed `TenantDropdownTrait`, `EntryCountColumnTrait` and `AssetBundle`
 
 # 1.2.3 (Dec 6, 2025)
 

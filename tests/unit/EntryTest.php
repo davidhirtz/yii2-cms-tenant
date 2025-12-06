@@ -19,14 +19,11 @@ class EntryTest extends Unit
 
     public function testCreateIndexEntry(): void
     {
+        $tenant = Yii::$app->get('tenant');
+
         $entry = Entry::create();
         $entry->name = 'Home';
         $entry->slug = $entry::getModule()->entryIndexSlug;
-
-        self::assertFalse($entry->save());
-        self::assertNotEmpty($entry->getErrors('tenant_id'));
-
-        $tenant = Yii::$app->get('tenant');
         $entry->populateTenantRelation($tenant);
 
         self::assertTrue($entry->save());
@@ -34,6 +31,7 @@ class EntryTest extends Unit
         self::assertEquals($entry->tenant_id, $tenant->id);
 
         $tenant->refresh();
+
         self::assertEquals(1, $tenant->getAttribute('entry_count'));
     }
 
@@ -46,20 +44,6 @@ class EntryTest extends Unit
         self::assertFalse($entry->save());
         self::assertNotEmpty($entry->getErrors('tenant_id'));
     }
-
-    //    public function testCreateI18nEntry(): void
-    //    {
-    //        Yii::$app->language = 'de';
-    //
-    //        self::assertEquals(0, TestEntry::find()->count());
-    //
-    //        $entry = TestEntry::create();
-    //        $entry->name = 'Startseite';
-    //        $entry->slug = $entry::getModule()->entryIndexSlug;
-    //
-    //        self::assertTrue($entry->save());
-    //        self::assertTrue($entry->isIndex());
-    //    }
 
     public function testUpdateEntry(): void
     {
