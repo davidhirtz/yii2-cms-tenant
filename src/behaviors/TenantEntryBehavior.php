@@ -11,6 +11,7 @@ use davidhirtz\yii2\cms\tenant\Bootstrap;
 use davidhirtz\yii2\tenant\models\Tenant;
 use Yii;
 use yii\base\Behavior;
+use yii\base\ModelEvent;
 
 /**
  * TenantEntryBehavior extends {@see Tenant} by updating related entries on deletion. This behavior is attached on
@@ -31,18 +32,19 @@ class TenantEntryBehavior extends Behavior
         ];
     }
 
-    public function onAfterSave(): void
+    protected function onAfterSave(): void
     {
         /** @var Module $module */
         $module = Yii::$app->getModule('cms');
         $module->invalidatePageCache();
     }
 
-    public function onBeforeDelete(): void
+    protected function onBeforeDelete(ModelEvent $event): void
     {
-        if ($entry = Entry::findOne(['tenant_id' => $this->owner->id])) {
-            $entry->status = Entry::STATUS_DISABLED;
-            $entry->update();
-        }
+        $hasEntries = Entry::find()
+            ->andWhere(['tenant_id' => $this->owner->id])
+            ->exists();
+
+        $event->isValid = !$hasEntries;
     }
 }

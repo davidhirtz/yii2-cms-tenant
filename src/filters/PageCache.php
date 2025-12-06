@@ -12,7 +12,7 @@ class PageCache extends \davidhirtz\yii2\skeleton\filters\PageCache
     {
         parent::init();
 
-        if (is_array($this->variations)) {
+        if (!is_callable($this->variations)) {
             $this->variations[] = Yii::$app->get('tenant')->id;
         }
     }

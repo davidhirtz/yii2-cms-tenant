@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace davidhirtz\yii2\cms\tenant\migrations;
 
 use davidhirtz\yii2\cms\migrations\traits\I18nTablesTrait;
+use davidhirtz\yii2\cms\migrations\traits\SlugIndexTrait;
 use davidhirtz\yii2\cms\models\Entry;
 use davidhirtz\yii2\skeleton\db\traits\MigrationTrait;
 use davidhirtz\yii2\tenant\models\Tenant;
@@ -19,6 +20,7 @@ class M240819124325CmsTenant extends Migration
 {
     use MigrationTrait;
     use I18nTablesTrait;
+    use SlugIndexTrait;
 
     public function safeUp(): void
     {
@@ -57,6 +59,9 @@ class M240819124325CmsTenant extends Migration
 
             $after = $attributeName;
         }
+
+        $this->dropSlugIndex();
+        $this->createSlugIndex();
     }
 
     public function safeDown(): void
