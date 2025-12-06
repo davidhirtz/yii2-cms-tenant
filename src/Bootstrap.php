@@ -41,7 +41,7 @@ class Bootstrap implements BootstrapInterface
             EntryQuery::class => models\queries\EntryQuery::class,
             TenantGridView::class => modules\admin\widgets\grids\TenantGridView::class,
             PageCache::class => filters\PageCache::class,
-            SectionParentEntryGridView::class => widgets\grids\SectionParentEntryGridView::class,
+            SectionParentEntryGridView::class => modules\admin\widgets\grids\SectionParentEntryGridView::class,
         ];
 
         foreach ($definitions as $oldClass => $newClass) {
