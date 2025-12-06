@@ -30,6 +30,7 @@ class EntryTenantBehavior extends Behavior
     public function events(): array
     {
         return [
+            BaseActiveRecord::EVENT_BEFORE_VALIDATE => $this->onBeforeValidate(...),
             BaseActiveRecord::EVENT_AFTER_VALIDATE => $this->onAfterValidate(...),
             BaseActiveRecord::EVENT_AFTER_DELETE => $this->onAfterDelete(...),
             BaseActiveRecord::EVENT_AFTER_INSERT => $this->onAfterInsert(...),
@@ -51,11 +52,21 @@ class EntryTenantBehavior extends Behavior
         $this->owner->setAttribute('tenant_id', $tenant?->id);
     }
 
+    protected function onBeforeValidate(): void
+    {
+        /** @var self $model */
+        $model = $this->owner;
+
+        if (!$model->tenant_id) {
+            $model->populateTenantRelation(Yii::$app->get('tenant'));
+        }
+    }
+
     protected function onAfterValidate(): void
     {
         if (
             $this->owner->parent
-            && $this->owner->parent->getAttribute('tenant_id') != $this->owner->getAttribute('tenant_id')
+            && $this->owner->parent->getAttribute('tenant_id') !== $this->owner->getAttribute('tenant_id')
         ) {
             $this->owner->addInvalidAttributeError('parent_id');
         }

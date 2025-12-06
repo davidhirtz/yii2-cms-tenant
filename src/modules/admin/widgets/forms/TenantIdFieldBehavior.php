@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\widgets\forms;
+namespace davidhirtz\yii2\cms\tenant\modules\admin\widgets\forms;
 
 use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
 use davidhirtz\yii2\cms\tenant\Bootstrap;
@@ -17,7 +17,7 @@ use yii\widgets\ActiveField;
  * TenantIdFieldBehavior extends {@see EntryActiveForm} to add a tenant select field. It only shows tenants that
  * are not already linked to another entry. This behavior is attached on startup by {@see Bootstrap}.
  *
- * @property EntryActiveForm $owner
+ * @property \davidhirtz\yii2\cms\tenant\modules\admin\widgets\forms\EntryActiveForm $owner
  */
 class TenantIdFieldBehavior extends Behavior
 {
@@ -28,7 +28,7 @@ class TenantIdFieldBehavior extends Behavior
      * This is used for both new entries and on change of the tenant id dropdown, as the list of available parent
      * entries depends on the tenant and might need to be reloaded.
      *
-     * @param EntryActiveForm $owner
+     * @param \davidhirtz\yii2\cms\tenant\modules\admin\widgets\forms\EntryActiveForm $owner
      */
     public function attach($owner): void
     {

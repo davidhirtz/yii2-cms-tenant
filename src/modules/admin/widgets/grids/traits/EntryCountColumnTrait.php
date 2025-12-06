@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\widgets\grids\traits;
+namespace davidhirtz\yii2\cms\tenant\modules\admin\widgets\grids\traits;
 
 use davidhirtz\yii2\cms\tenant\models\Entry;
 use davidhirtz\yii2\skeleton\modules\admin\widgets\grids\columns\CounterColumn;

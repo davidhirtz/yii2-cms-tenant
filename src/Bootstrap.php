@@ -7,12 +7,10 @@ namespace davidhirtz\yii2\cms\tenant;
 use davidhirtz\yii2\cms\models\Entry;
 use davidhirtz\yii2\cms\models\queries\EntryQuery;
 use davidhirtz\yii2\cms\modules\admin\data\EntryActiveDataProvider;
-use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
-use davidhirtz\yii2\cms\modules\admin\widgets\forms\fields\EntryParentIdDropDown;
+use davidhirtz\yii2\cms\modules\admin\widgets\forms\fields\EntryParentIdSelectField;
 use davidhirtz\yii2\cms\modules\admin\widgets\grids\EntryGridView;
 use davidhirtz\yii2\cms\tenant\behaviors\EntryTenantBehavior;
 use davidhirtz\yii2\cms\tenant\behaviors\TenantEntryBehavior;
-use davidhirtz\yii2\cms\tenant\widgets\forms\TenantIdFieldBehavior;
 use davidhirtz\yii2\skeleton\filters\PageCache;
 use davidhirtz\yii2\skeleton\web\Application;
 use davidhirtz\yii2\tenant\models\Tenant;
@@ -20,7 +18,6 @@ use davidhirtz\yii2\tenant\modules\admin\widgets\grids\TenantGridView;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\Event;
-use yii\base\Widget;
 
 class Bootstrap implements BootstrapInterface
 {
@@ -30,7 +27,6 @@ class Bootstrap implements BootstrapInterface
     public function bootstrap($app): void
     {
         $this->attachEntryTenantBehavior();
-        $this->attachTenantIdFieldBehavior();
         $this->attachTenantEntryBehavior();
 
         $app->extendComponent('sitemap', [
@@ -39,10 +35,10 @@ class Bootstrap implements BootstrapInterface
 
         $definitions = [
             EntryActiveDataProvider::class => data\EntryActiveDataProvider::class,
-            EntryGridView::class => widgets\grids\EntryGridView::class,
-            EntryParentIdDropDown::class => widgets\forms\EntryParentIdDropDown::class,
+            EntryGridView::class => modules\admin\widgets\grids\EntryGridView::class,
+            EntryParentIdSelectField::class => modules\admin\widgets\forms\fields\EntryParentIdSelectField::class,
             EntryQuery::class => models\queries\EntryQuery::class,
-            TenantGridView::class => widgets\grids\TenantGridView::class,
+            TenantGridView::class => modules\admin\widgets\grids\TenantGridView::class,
             PageCache::class => filters\PageCache::class,
         ];
 
@@ -64,15 +60,6 @@ class Bootstrap implements BootstrapInterface
             /** @var Entry $entry */
             $entry = $event->sender;
             $entry->attachBehavior('EntryTenantBehavior', EntryTenantBehavior::class);
-        });
-    }
-
-    protected function attachTenantIdFieldBehavior(): void
-    {
-        Event::on(EntryActiveForm::class, Widget::EVENT_INIT, function (Event $event) {
-            /** @var EntryActiveForm $form */
-            $form = $event->sender;
-            $form->attachBehavior('TenantIdFieldBehavior', TenantIdFieldBehavior::class);
         });
     }
 
