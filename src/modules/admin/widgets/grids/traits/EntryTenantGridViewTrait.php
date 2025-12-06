@@ -9,7 +9,7 @@ use davidhirtz\yii2\tenant\models\collections\TenantCollection;
 use davidhirtz\yii2\tenant\models\Tenant;
 use Yii;
 
-trait TenantDropdownTrait
+trait EntryTenantGridViewTrait
 {
     public ?int $tenantId = null;
     public string $tenantParamName = 'tenant';

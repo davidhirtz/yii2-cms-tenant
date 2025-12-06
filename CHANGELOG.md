@@ -1,3 +1,9 @@
+# 3.0.0
+
+- Skipped version 2 for major refactor to align with other packages
+- Removed `TenantIdFieldBehavior`
+- Renamed `TenantDropdownTrait` and `EntryCountColumnTrait`
+
 # 1.2.0 (May 26, 2025)
 
 - Requires PHP 8.3+

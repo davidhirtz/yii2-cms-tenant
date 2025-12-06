@@ -6,7 +6,6 @@ namespace davidhirtz\yii2\cms\tenant\models;
 
 use davidhirtz\yii2\cms\models\queries\EntryQuery;
 use davidhirtz\yii2\cms\tenant\behaviors\EntryTenantBehavior;
-use davidhirtz\yii2\tenant\models\Tenant;
 use Yii;
 
 /**
@@ -19,7 +18,11 @@ use Yii;
  */
 class Entry extends \davidhirtz\yii2\cms\models\Entry
 {
-    public array|string|null $slugTargetAttribute = ['tenant_id', 'slug', 'parent_slug'];
+    public array|string|null $slugTargetAttribute = [
+        'tenant_id',
+        'slug',
+        'parent_slug',
+    ];
 
     public function getRoute(): false|array
     {
@@ -31,12 +34,6 @@ class Entry extends \davidhirtz\yii2\cms\models\Entry
                 ...$this->getEntryTenantBehavior()->getTenantRouteParams()
             ]
             : false;
-    }
-
-    public function populateTenantRelation(Tenant $tenant): void
-    {
-        $this->populateRelation('tenant', $tenant);
-        $this->tenant_id = $tenant->id;
     }
 
     public function findSiblings(): EntryQuery
