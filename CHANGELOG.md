@@ -1,4 +1,4 @@
-# 1.2.3 (Nov 24, 2025)
+# 1.2.3 (Dec 6, 2025)
 
 - Fixed `TenantEntryBehavior::onBeforeDelete()` to prevent deletion of a tenant that still has entries
 
