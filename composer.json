@@ -15,7 +15,6 @@
     "davidhirtz/yii2-tenant": "^1.2"
   },
   "require-dev": {
-    "codeception/codeception": "^5.2",
     "codeception/module-asserts": "^3.1",
     "codeception/module-filesystem": "^3.0",
     "codeception/module-phpbrowser": "*",
