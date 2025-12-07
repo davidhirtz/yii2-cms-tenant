@@ -1,12 +1,9 @@
 {
-  "name": "yii2-cms-tenant",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "./node_modules/.bin/esbuild src/assets/src/dropdown.ts --minify --outfile=src/assets/dist/dropdown.js"
-  },
-  "author": "David Hirtz",
-  "license": "ISC",
   "devDependencies": {
     "esbuild": "0.27"
+  },
+  "private": true,
+  "scripts": {
+    "build": "./node_modules/.bin/esbuild assets/src/dropdown.ts --minify --outfile=assets/dist/dropdown.js"
   }
 }
