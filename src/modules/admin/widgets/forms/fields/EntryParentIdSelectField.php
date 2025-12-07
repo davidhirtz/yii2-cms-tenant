@@ -18,6 +18,9 @@ class EntryParentIdSelectField extends \davidhirtz\yii2\cms\modules\admin\widget
         $this->attributes['data-id'] ??= 'parent';
         $this->attributes['promptAttributes']['data-value'][0] = $this->model->tenant->getAbsoluteUrl();
 
+        // Make sure only one option to ensure the JS can populate the options on change.
+        $this->showSingleOption = true;
+
         parent::configure();
     }
 
