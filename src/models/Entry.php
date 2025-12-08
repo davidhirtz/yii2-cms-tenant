@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\models;
+namespace Hirtz\Cms\tenant\models;
 
-use davidhirtz\yii2\cms\models\queries\EntryQuery;
-use davidhirtz\yii2\cms\tenant\behaviors\EntryTenantBehavior;
+use Hirtz\Cms\models\queries\EntryQuery;
+use Hirtz\Cms\tenant\behaviors\EntryTenantBehavior;
 use Yii;
 
 /**
@@ -16,7 +16,7 @@ use Yii;
  *
  * @mixin EntryTenantBehavior
  */
-class Entry extends \davidhirtz\yii2\cms\models\Entry
+class Entry extends \Hirtz\Cms\models\Entry
 {
     public array|string|null $slugTargetAttribute = [
         'tenant_id',

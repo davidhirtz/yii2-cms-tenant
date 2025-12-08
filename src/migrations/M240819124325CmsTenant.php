@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\migrations;
+namespace Hirtz\Cms\tenant\migrations;
 
-use davidhirtz\yii2\cms\migrations\traits\I18nTablesTrait;
-use davidhirtz\yii2\cms\migrations\traits\SlugIndexTrait;
-use davidhirtz\yii2\cms\models\Entry;
-use davidhirtz\yii2\skeleton\db\traits\MigrationTrait;
-use davidhirtz\yii2\tenant\models\Tenant;
+use Hirtz\Cms\migrations\traits\I18nTablesTrait;
+use Hirtz\Cms\migrations\traits\SlugIndexTrait;
+use Hirtz\Cms\models\Entry;
+use Hirtz\Skeleton\db\traits\MigrationTrait;
+use Hirtz\Tenant\models\Tenant;
 use Yii;
 use yii\db\Migration;
 

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\behaviors;
+namespace Hirtz\Cms\tenant\behaviors;
 
-use davidhirtz\yii2\cms\Bootstrap;
-use davidhirtz\yii2\cms\models\Entry;
-use davidhirtz\yii2\cms\tenant\validators\TenantIdValidator;
+use Hirtz\Cms\Bootstrap;
+use Hirtz\Cms\models\Entry;
+use Hirtz\Cms\tenant\validators\TenantIdValidator;
 use davidhirtz\yii2\datetime\DateTime;
-use davidhirtz\yii2\skeleton\models\events\CreateValidatorsEvent;
-use davidhirtz\yii2\tenant\models\collections\TenantCollection;
-use davidhirtz\yii2\tenant\models\queries\TenantQuery;
-use davidhirtz\yii2\tenant\models\Tenant;
+use Hirtz\Skeleton\models\events\CreateValidatorsEvent;
+use Hirtz\Tenant\models\collections\TenantCollection;
+use Hirtz\Tenant\models\queries\TenantQuery;
+use Hirtz\Tenant\models\Tenant;
 use Yii;
 use yii\base\Behavior;
 use yii\db\AfterSaveEvent;

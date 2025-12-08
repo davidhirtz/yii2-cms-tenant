@@ -6,13 +6,13 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\tests\functional;
+namespace Hirtz\Cms\tenant\tests\functional;
 
-use davidhirtz\yii2\cms\tenant\tests\support\FunctionalTester;
-use davidhirtz\yii2\skeleton\codeception\fixtures\UserFixtureTrait;
-use davidhirtz\yii2\skeleton\codeception\functional\BaseCest;
-use davidhirtz\yii2\skeleton\models\User;
-use davidhirtz\yii2\tenant\models\Tenant;
+use Hirtz\Cms\tenant\tests\support\FunctionalTester;
+use Hirtz\Skeleton\codeception\fixtures\UserFixtureTrait;
+use Hirtz\Skeleton\codeception\functional\BaseCest;
+use Hirtz\Skeleton\models\User;
+use Hirtz\Tenant\models\Tenant;
 use Yii;
 
 class AuthCest extends BaseCest

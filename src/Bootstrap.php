@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant;
+namespace Hirtz\Cms\tenant;
 
-use davidhirtz\yii2\cms\models\Entry;
-use davidhirtz\yii2\cms\models\queries\EntryQuery;
-use davidhirtz\yii2\cms\modules\admin\data\EntryActiveDataProvider;
-use davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm;
-use davidhirtz\yii2\cms\modules\admin\widgets\forms\fields\EntryParentIdSelectField;
-use davidhirtz\yii2\cms\modules\admin\widgets\grids\EntryGridView;
-use davidhirtz\yii2\cms\modules\admin\widgets\grids\SectionParentEntryGridView;
-use davidhirtz\yii2\cms\tenant\behaviors\EntryTenantBehavior;
-use davidhirtz\yii2\cms\tenant\behaviors\TenantEntryBehavior;
-use davidhirtz\yii2\skeleton\filters\PageCache;
-use davidhirtz\yii2\skeleton\web\Application;
-use davidhirtz\yii2\tenant\models\Tenant;
-use davidhirtz\yii2\tenant\modules\admin\widgets\grids\TenantGridView;
+use Hirtz\Cms\models\Entry;
+use Hirtz\Cms\models\queries\EntryQuery;
+use Hirtz\Cms\modules\admin\data\EntryActiveDataProvider;
+use Hirtz\Cms\modules\admin\widgets\forms\EntryActiveForm;
+use Hirtz\Cms\modules\admin\widgets\forms\fields\EntryParentIdSelectField;
+use Hirtz\Cms\modules\admin\widgets\grids\EntryGridView;
+use Hirtz\Cms\modules\admin\widgets\grids\SectionParentEntryGridView;
+use Hirtz\Cms\tenant\behaviors\EntryTenantBehavior;
+use Hirtz\Cms\tenant\behaviors\TenantEntryBehavior;
+use Hirtz\Skeleton\filters\PageCache;
+use Hirtz\Skeleton\web\Application;
+use Hirtz\Tenant\models\Tenant;
+use Hirtz\Tenant\modules\admin\widgets\grids\TenantGridView;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\Event;
@@ -56,7 +56,7 @@ class Bootstrap implements BootstrapInterface
             'enableI18nTables' => false,
         ]);
 
-        $app->setMigrationNamespace('davidhirtz\yii2\cms\tenant\migrations');
+        $app->setMigrationNamespace('Hirtz\Cms\tenant\migrations');
     }
 
     protected function attachEntryTenantBehavior(): void

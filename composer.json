@@ -31,12 +31,12 @@
   },
   "autoload": {
     "psr-4": {
-      "davidhirtz\\yii2\\cms\\tenant\\": "src"
+      "Hirtz\\Cms\\tenant\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "davidhirtz\\yii2\\cms\\tenant\\tests\\": "tests"
+      "Hirtz\\Cms\\tenant\\tests\\": "tests"
     }
   },
   "config": {
@@ -45,7 +45,7 @@
     }
   },
   "extra": {
-    "bootstrap": "davidhirtz\\yii2\\cms\\tenant\\Bootstrap"
+    "bootstrap": "Hirtz\\Cms\\tenant\\Bootstrap"
   },  "repositories": [
   {
     "type": "composer",

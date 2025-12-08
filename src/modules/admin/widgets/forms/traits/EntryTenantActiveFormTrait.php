@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\modules\admin\widgets\forms\traits;
+namespace Hirtz\Cms\tenant\modules\admin\widgets\forms\traits;
 
-use davidhirtz\yii2\cms\tenant\modules\admin\widgets\forms\fields\TenantIdField;
-use davidhirtz\yii2\tenant\models\collections\TenantCollection;
+use Hirtz\Cms\tenant\modules\admin\widgets\forms\fields\TenantIdField;
+use Hirtz\Tenant\models\collections\TenantCollection;
 use Stringable;
 use Yii;
 

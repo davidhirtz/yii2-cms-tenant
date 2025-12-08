@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\modules\admin\widgets\forms\fields;
+namespace Hirtz\Cms\tenant\modules\admin\widgets\forms\fields;
 
-use davidhirtz\yii2\cms\tenant\assets\TenantDropdownAssetBundle;
-use davidhirtz\yii2\cms\tenant\models\Entry;
-use davidhirtz\yii2\skeleton\widgets\forms\fields\SelectField;
-use davidhirtz\yii2\tenant\models\collections\TenantCollection;
+use Hirtz\Cms\tenant\assets\TenantDropdownAssetBundle;
+use Hirtz\Cms\tenant\models\Entry;
+use Hirtz\Skeleton\widgets\forms\fields\SelectField;
+use Hirtz\Tenant\models\collections\TenantCollection;
 use Yii;
 
 /**

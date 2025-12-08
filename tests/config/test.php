@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use davidhirtz\yii2\cms\tenant\Bootstrap;
+use Hirtz\Cms\tenant\Bootstrap;
 use yii\web\Session;
 
 return [

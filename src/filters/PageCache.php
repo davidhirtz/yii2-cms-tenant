@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\filters;
+namespace Hirtz\Cms\tenant\filters;
 
 use Yii;
 
-class PageCache extends \davidhirtz\yii2\skeleton\filters\PageCache
+class PageCache extends \Hirtz\Skeleton\filters\PageCache
 {
     public function init(): void
     {

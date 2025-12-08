@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\modules\admin\widgets\grids\traits;
+namespace Hirtz\Cms\tenant\modules\admin\widgets\grids\traits;
 
-use davidhirtz\yii2\skeleton\widgets\grids\toolbars\FilterDropdown;
-use davidhirtz\yii2\tenant\models\collections\TenantCollection;
-use davidhirtz\yii2\tenant\models\Tenant;
+use Hirtz\Skeleton\widgets\grids\toolbars\FilterDropdown;
+use Hirtz\Tenant\models\collections\TenantCollection;
+use Hirtz\Tenant\models\Tenant;
 use Yii;
 
 trait EntryTenantGridViewTrait

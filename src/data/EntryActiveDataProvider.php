@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\data;
+namespace Hirtz\Cms\tenant\data;
 
-use davidhirtz\yii2\cms\tenant\models\queries\EntryQuery;
+use Hirtz\Cms\tenant\models\queries\EntryQuery;
 use Yii;
 
 /**
  * @property EntryQuery $query
  */
-class EntryActiveDataProvider extends \davidhirtz\yii2\cms\modules\admin\data\EntryActiveDataProvider
+class EntryActiveDataProvider extends \Hirtz\Cms\modules\admin\data\EntryActiveDataProvider
 {
     public int $tenantId;
 

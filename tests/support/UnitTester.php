@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\tests\support;
+namespace Hirtz\Cms\tenant\tests\support;
 
 /**
  * Inherited Methods

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\modules\admin\widgets\forms;
+namespace Hirtz\Cms\tenant\modules\admin\widgets\forms;
 
-use davidhirtz\yii2\cms\tenant\models\Entry;
-use davidhirtz\yii2\cms\tenant\modules\admin\widgets\forms\fields\TenantIdField;
-use davidhirtz\yii2\cms\tenant\modules\admin\widgets\forms\traits\EntryTenantActiveFormTrait;
-use davidhirtz\yii2\tenant\models\collections\TenantCollection;
+use Hirtz\Cms\tenant\models\Entry;
+use Hirtz\Cms\tenant\modules\admin\widgets\forms\fields\TenantIdField;
+use Hirtz\Cms\tenant\modules\admin\widgets\forms\traits\EntryTenantActiveFormTrait;
+use Hirtz\Tenant\models\collections\TenantCollection;
 use Stringable;
 use Yii;
 
@@ -15,7 +15,7 @@ use Yii;
  * @template T of Entry
  * @property Entry $model
  */
-class EntryActiveForm extends \davidhirtz\yii2\cms\modules\admin\widgets\forms\EntryActiveForm
+class EntryActiveForm extends \Hirtz\Cms\modules\admin\widgets\forms\EntryActiveForm
 {
     use EntryTenantActiveFormTrait;
 

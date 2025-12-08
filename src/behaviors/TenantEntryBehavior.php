@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\behaviors;
+namespace Hirtz\Cms\tenant\behaviors;
 
-use davidhirtz\yii2\cms\models\Entry;
-use davidhirtz\yii2\cms\models\traits\EntryRelationTrait;
-use davidhirtz\yii2\cms\Module;
-use davidhirtz\yii2\cms\tenant\Bootstrap;
-use davidhirtz\yii2\tenant\models\Tenant;
+use Hirtz\Cms\models\Entry;
+use Hirtz\Cms\models\traits\EntryRelationTrait;
+use Hirtz\Cms\Module;
+use Hirtz\Cms\tenant\Bootstrap;
+use Hirtz\Tenant\models\Tenant;
 use Yii;
 use yii\base\Behavior;
 use yii\base\ModelEvent;

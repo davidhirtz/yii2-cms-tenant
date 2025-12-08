@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\tests\unit;
+namespace Hirtz\Cms\tenant\tests\unit;
 
 use Codeception\Test\Unit;
-use davidhirtz\yii2\cms\tenant\models\Entry;
-use davidhirtz\yii2\tenant\models\collections\TenantCollection;
-use davidhirtz\yii2\tenant\models\Tenant;
+use Hirtz\Cms\tenant\models\Entry;
+use Hirtz\Tenant\models\collections\TenantCollection;
+use Hirtz\Tenant\models\Tenant;
 use Yii;
 
 class EntryTest extends Unit

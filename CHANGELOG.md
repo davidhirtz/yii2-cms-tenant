@@ -20,7 +20,7 @@
 
 - Requires PHP 8.3+
 - Added GitHub CI
-- Changed `\davidhirtz\yii2\cms\Module::$enableI18nTables` to `false` as I18N tables for entries are not supported
+- Changed `\Hirtz\Cms\Module::$enableI18nTables` to `false` as I18N tables for entries are not supported
   with tenants enabled.
 
 ## 1.1.1 (Dec 23, 2024)

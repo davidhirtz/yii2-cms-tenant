@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace davidhirtz\yii2\cms\tenant\modules\admin\widgets\grids\traits;
+namespace Hirtz\Cms\tenant\modules\admin\widgets\grids\traits;
 
-use davidhirtz\yii2\cms\tenant\models\Entry;
-use davidhirtz\yii2\skeleton\widgets\grids\columns\BadgeColumn;
-use davidhirtz\yii2\skeleton\widgets\grids\columns\Column;
-use davidhirtz\yii2\tenant\models\Tenant;
+use Hirtz\Cms\tenant\models\Entry;
+use Hirtz\Skeleton\widgets\grids\columns\BadgeColumn;
+use Hirtz\Skeleton\widgets\grids\columns\Column;
+use Hirtz\Tenant\models\Tenant;
 use Yii;
 
 trait TenantEntryGridViewTrait
