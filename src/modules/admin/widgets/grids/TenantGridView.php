@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\modules\admin\widgets\grids;
+namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Grids;
 
-use Hirtz\Cms\tenant\modules\admin\widgets\grids\traits\TenantEntryGridViewTrait;
+use Hirtz\Cms\tenant\Modules\Admin\Widgets\Grids\Traits\TenantEntryGridViewTrait;
 
-class TenantGridView extends \Hirtz\Tenant\modules\admin\widgets\grids\TenantGridView
+class TenantGridView extends \Hirtz\Tenant\Modules\Admin\Widgets\Grids\TenantGridView
 {
     use TenantEntryGridViewTrait;
 

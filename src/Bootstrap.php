@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Hirtz\Cms\tenant;
 
-use Hirtz\Cms\models\Entry;
-use Hirtz\Cms\models\queries\EntryQuery;
-use Hirtz\Cms\modules\admin\data\EntryActiveDataProvider;
-use Hirtz\Cms\modules\admin\widgets\forms\EntryActiveForm;
-use Hirtz\Cms\modules\admin\widgets\forms\fields\EntryParentIdSelectField;
-use Hirtz\Cms\modules\admin\widgets\grids\EntryGridView;
-use Hirtz\Cms\modules\admin\widgets\grids\SectionParentEntryGridView;
+use Hirtz\Cms\Models\Entry;
+use Hirtz\Cms\Models\queries\EntryQuery;
+use Hirtz\Cms\Modules\Admin\Data\EntryActiveDataProvider;
+use Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryActiveForm;
+use Hirtz\Cms\Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField;
+use Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryGridView;
+use Hirtz\Cms\Modules\Admin\Widgets\Forms\SectionParentEntryGridView;
 use Hirtz\Cms\tenant\behaviors\EntryTenantBehavior;
 use Hirtz\Cms\tenant\behaviors\TenantEntryBehavior;
-use Hirtz\Skeleton\filters\PageCache;
-use Hirtz\Skeleton\web\Application;
+use Hirtz\Skeleton\Filters\PageCache;
+use Hirtz\Skeleton\Web\Application;
 use Hirtz\Tenant\models\Tenant;
-use Hirtz\Tenant\modules\admin\widgets\grids\TenantGridView;
+use Hirtz\Tenant\Modules\Admin\Widgets\Grids\TenantGridView;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\Event;
@@ -38,13 +38,13 @@ class Bootstrap implements BootstrapInterface
         $definitions = [
             Entry::class => models\Entry::class,
             EntryActiveDataProvider::class => data\EntryActiveDataProvider::class,
-            EntryActiveForm::class => modules\admin\widgets\forms\EntryActiveForm::class,
-            EntryGridView::class => modules\admin\widgets\grids\EntryGridView::class,
-            EntryParentIdSelectField::class => modules\admin\widgets\forms\fields\EntryParentIdSelectField::class,
+            EntryActiveForm::class => Modules\Admin\Widgets\Forms\EntryActiveForm::class,
+            EntryGridView::class => Modules\Admin\Widgets\Grids\EntryGridView::class,
+            EntryParentIdSelectField::class => Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField::class,
             EntryQuery::class => models\queries\EntryQuery::class,
             PageCache::class => filters\PageCache::class,
-            SectionParentEntryGridView::class => modules\admin\widgets\grids\SectionParentEntryGridView::class,
-            TenantGridView::class => modules\admin\widgets\grids\TenantGridView::class,
+            SectionParentEntryGridView::class => Modules\Admin\Widgets\Grids\SectionParentEntryGridView::class,
+            TenantGridView::class => Modules\Admin\Widgets\Grids\TenantGridView::class,
         ];
 
         foreach ($definitions as $oldClass => $newClass) {
@@ -56,7 +56,7 @@ class Bootstrap implements BootstrapInterface
             'enableI18nTables' => false,
         ]);
 
-        $app->setMigrationNamespace('Hirtz\Cms\tenant\migrations');
+        $app->setMigrationNamespace('Hirtz\Cms\tenant\Migrations');
     }
 
     protected function attachEntryTenantBehavior(): void

@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\modules\admin\widgets\forms\fields;
+namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Fields;
 
-use Hirtz\Cms\models\queries\EntryQuery;
+use Hirtz\Cms\Models\queries\EntryQuery;
 use Hirtz\Cms\tenant\models\Entry;
 use Yii;
 
 /**
  * @property Entry $model
  */
-class EntryParentIdSelectField extends \Hirtz\Cms\modules\admin\widgets\forms\fields\EntryParentIdSelectField
+class EntryParentIdSelectField extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField
 {
     protected function configure(): void
     {

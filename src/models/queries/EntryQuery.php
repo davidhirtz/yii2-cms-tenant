@@ -6,7 +6,7 @@ namespace Hirtz\Cms\tenant\models\queries;
 
 use Hirtz\Tenant\models\queries\traits\TenantQueryTrait;
 
-class EntryQuery extends \Hirtz\Cms\models\queries\EntryQuery
+class EntryQuery extends \Hirtz\Cms\Models\queries\EntryQuery
 {
     use TenantQueryTrait;
 

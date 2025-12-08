@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\migrations;
+namespace Hirtz\Cms\tenant\Migrations;
 
-use Hirtz\Cms\migrations\traits\I18nTablesTrait;
-use Hirtz\Cms\migrations\traits\SlugIndexTrait;
-use Hirtz\Cms\models\Entry;
-use Hirtz\Skeleton\db\traits\MigrationTrait;
+use Hirtz\Cms\Migrations\Traits\I18nTablesTrait;
+use Hirtz\Cms\Migrations\Traits\SlugIndexTrait;
+use Hirtz\Cms\Models\Entry;
+use Hirtz\Skeleton\Db\Traits\MigrationTrait;
 use Hirtz\Tenant\models\Tenant;
 use Yii;
 use yii\db\Migration;

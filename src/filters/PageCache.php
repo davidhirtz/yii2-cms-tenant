@@ -6,7 +6,7 @@ namespace Hirtz\Cms\tenant\filters;
 
 use Yii;
 
-class PageCache extends \Hirtz\Skeleton\filters\PageCache
+class PageCache extends \Hirtz\Skeleton\Filters\PageCache
 {
     public function init(): void
     {

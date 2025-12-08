@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\modules\admin\widgets\forms\fields;
+namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Fields;
 
 use Hirtz\Cms\tenant\assets\TenantDropdownAssetBundle;
 use Hirtz\Cms\tenant\models\Entry;
-use Hirtz\Skeleton\widgets\forms\fields\SelectField;
+use Hirtz\Skeleton\Widgets\Forms\Fields\SelectField;
 use Hirtz\Tenant\models\collections\TenantCollection;
 use Yii;
 

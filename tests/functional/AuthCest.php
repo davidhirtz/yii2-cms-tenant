@@ -9,9 +9,9 @@ declare(strict_types=1);
 namespace Hirtz\Cms\tenant\tests\functional;
 
 use Hirtz\Cms\tenant\tests\support\FunctionalTester;
-use Hirtz\Skeleton\codeception\fixtures\UserFixtureTrait;
-use Hirtz\Skeleton\codeception\functional\BaseCest;
-use Hirtz\Skeleton\models\User;
+use Hirtz\Skeleton\Codeception\fixtures\UserFixtureTrait;
+use Hirtz\Skeleton\Codeception\functional\BaseCest;
+use Hirtz\Skeleton\Models\User;
 use Hirtz\Tenant\models\Tenant;
 use Yii;
 

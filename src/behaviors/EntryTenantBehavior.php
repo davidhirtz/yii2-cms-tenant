@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Hirtz\Cms\tenant\behaviors;
 
 use Hirtz\Cms\Bootstrap;
-use Hirtz\Cms\models\Entry;
+use Hirtz\Cms\Models\Entry;
 use Hirtz\Cms\tenant\validators\TenantIdValidator;
 use davidhirtz\yii2\datetime\DateTime;
-use Hirtz\Skeleton\models\events\CreateValidatorsEvent;
+use Hirtz\Skeleton\Models\Events\CreateValidatorsEvent;
 use Hirtz\Tenant\models\collections\TenantCollection;
 use Hirtz\Tenant\models\queries\TenantQuery;
 use Hirtz\Tenant\models\Tenant;

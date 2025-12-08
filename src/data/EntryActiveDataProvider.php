@@ -10,7 +10,7 @@ use Yii;
 /**
  * @property EntryQuery $query
  */
-class EntryActiveDataProvider extends \Hirtz\Cms\modules\admin\data\EntryActiveDataProvider
+class EntryActiveDataProvider extends \Hirtz\Cms\Modules\Admin\Data\EntryActiveDataProvider
 {
     public int $tenantId;
 

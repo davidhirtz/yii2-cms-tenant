@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\modules\admin\widgets\forms\traits;
+namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Traits;
 
-use Hirtz\Cms\tenant\modules\admin\widgets\forms\fields\TenantIdField;
+use Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Fields\TenantIdField;
 use Hirtz\Tenant\models\collections\TenantCollection;
 use Stringable;
 use Yii;
