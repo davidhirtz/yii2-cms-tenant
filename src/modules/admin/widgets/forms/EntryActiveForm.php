@@ -19,6 +19,7 @@ class EntryActiveForm extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryActive
 {
     use EntryTenantActiveFormTrait;
 
+    #[\Override]
     protected function configure(): void
     {
         $this->setTenantFromRequest();

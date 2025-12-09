@@ -35,7 +35,7 @@ class EntryTest extends Unit
         self::assertEquals(1, $tenant->getAttribute('entry_count'));
     }
 
-    public function testCreateEntryValidationErrors()
+    public function testCreateEntryValidationErrors(): void
     {
         $entry = Entry::create();
         $entry->name = 'Invalid';

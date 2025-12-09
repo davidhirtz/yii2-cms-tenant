@@ -10,6 +10,7 @@ class TenantGridView extends \Hirtz\Tenant\Modules\Admin\Widgets\Grids\TenantGri
 {
     use TenantEntryGridViewTrait;
 
+    #[\Override]
     protected function configure(): void
     {
         $this->columns ??= [

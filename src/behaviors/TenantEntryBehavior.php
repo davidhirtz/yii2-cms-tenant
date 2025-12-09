@@ -23,6 +23,7 @@ class TenantEntryBehavior extends Behavior
 {
     use EntryRelationTrait;
 
+    #[\Override]
     public function events(): array
     {
         return [

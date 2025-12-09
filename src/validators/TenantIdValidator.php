@@ -22,6 +22,7 @@ class TenantIdValidator extends Validator
     /**
      * @param Entry $model
      */
+    #[\Override]
     public function validateAttribute($model, $attribute): void
     {
         $tenantId = (int)$model->getAttribute($attribute);
@@ -39,6 +40,7 @@ class TenantIdValidator extends Validator
         }
     }
 
+    #[\Override]
     public function validate($value, &$error = null): bool
     {
         throw new NotSupportedException(static::class . ' does not support validate().');

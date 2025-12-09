@@ -27,6 +27,7 @@ use yii\db\BaseActiveRecord;
  */
 class EntryTenantBehavior extends Behavior
 {
+    #[\Override]
     public function events(): array
     {
         return [

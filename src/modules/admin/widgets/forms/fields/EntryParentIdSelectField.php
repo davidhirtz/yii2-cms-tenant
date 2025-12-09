@@ -13,6 +13,7 @@ use Yii;
  */
 class EntryParentIdSelectField extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField
 {
+    #[\Override]
     protected function configure(): void
     {
         $this->attributes['data-id'] ??= 'parent';
@@ -24,6 +25,7 @@ class EntryParentIdSelectField extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\Fi
         parent::configure();
     }
 
+    #[\Override]
     protected function getEntryQuery(): EntryQuery
     {
         return parent::getEntryQuery()

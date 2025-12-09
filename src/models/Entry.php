@@ -24,6 +24,7 @@ class Entry extends \Hirtz\Cms\Models\Entry
         'parent_slug',
     ];
 
+    #[\Override]
     public function getRoute(): false|array
     {
         $route = parent::getRoute();
@@ -36,6 +37,7 @@ class Entry extends \Hirtz\Cms\Models\Entry
             : false;
     }
 
+    #[\Override]
     public function findSiblings(): EntryQuery
     {
         return parent::findSiblings()->andWhere(['tenant_id' => $this->tenant_id]);
@@ -48,6 +50,7 @@ class Entry extends \Hirtz\Cms\Models\Entry
         return $behavior;
     }
 
+    #[\Override]
     public function attributeLabels(): array
     {
         return [

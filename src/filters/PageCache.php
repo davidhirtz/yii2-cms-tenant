@@ -8,6 +8,7 @@ use Yii;
 
 class PageCache extends \Hirtz\Skeleton\Filters\PageCache
 {
+    #[\Override]
     public function init(): void
     {
         parent::init();

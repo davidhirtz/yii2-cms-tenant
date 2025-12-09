@@ -16,6 +16,7 @@ use Yii;
  */
 class TenantIdField extends SelectField
 {
+    #[\Override]
     protected function configure(): void
     {
         $this->attributes['data-id'] ??= 'tenant';
