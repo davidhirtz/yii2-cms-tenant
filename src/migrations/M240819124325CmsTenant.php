@@ -26,7 +26,7 @@ class M240819124325CmsTenant extends Migration
     {
         $tenantId = Tenant::find()->select('id')->scalar();
 
-        $this->i18nTablesCallback(function () use ($tenantId) {
+        $this->i18nTablesCallback(function () use ($tenantId): void {
             $this->addColumn(Entry::tableName(), 'tenant_id', (string)$this->integer()
                 ->unsigned()
                 ->notNull()
@@ -70,7 +70,7 @@ class M240819124325CmsTenant extends Migration
             $this->dropColumn(Tenant::tableName(), $attributeName);
         }
 
-        $this->i18nTablesCallback(function () {
+        $this->i18nTablesCallback(function (): void {
             $tableName = $this->getDb()->getSchema()->getRawTableName(Entry::tableName());
             $this->dropForeignKey("{$tableName}_tenant_id_ibfk", Entry::tableName());
 

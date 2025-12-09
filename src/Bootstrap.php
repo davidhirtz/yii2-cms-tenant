@@ -61,7 +61,7 @@ class Bootstrap implements BootstrapInterface
 
     protected function attachEntryTenantBehavior(): void
     {
-        Event::on(Entry::class, Entry::EVENT_INIT, function (Event $event) {
+        Event::on(Entry::class, Entry::EVENT_INIT, function (Event $event): void {
             /** @var Entry $entry */
             $entry = $event->sender;
             $entry->attachBehavior('EntryTenantBehavior', EntryTenantBehavior::class);
@@ -70,7 +70,7 @@ class Bootstrap implements BootstrapInterface
 
     protected function attachTenantEntryBehavior(): void
     {
-        Event::on(Tenant::class, Tenant::EVENT_INIT, function (Event $event) {
+        Event::on(Tenant::class, Tenant::EVENT_INIT, function (Event $event): void {
             /** @var Tenant $tenant */
             $tenant = $event->sender;
             $tenant->attachBehavior('TenantEntryBehavior', TenantEntryBehavior::class);
