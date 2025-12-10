@@ -12,7 +12,7 @@ use Hirtz\Cms\tenant\tests\support\FunctionalTester;
 use Hirtz\Skeleton\Codeception\fixtures\UserFixtureTrait;
 use Hirtz\Skeleton\Codeception\functional\BaseCest;
 use Hirtz\Skeleton\Models\User;
-use Hirtz\Tenant\models\Tenant;
+use Hirtz\Tenant\Models\Tenant;
 use Yii;
 
 class AuthCest extends BaseCest

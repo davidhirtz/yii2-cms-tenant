@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Grids\Traits;
 
-use Hirtz\Cms\tenant\models\Entry;
+use Hirtz\Cms\tenant\Models\Entry;
 use Hirtz\Skeleton\Widgets\Grids\Columns\BadgeColumn;
 use Hirtz\Skeleton\Widgets\Grids\Columns\Column;
-use Hirtz\Tenant\models\Tenant;
+use Hirtz\Tenant\Models\Tenant;
 use Yii;
 
 trait TenantEntryGridViewTrait

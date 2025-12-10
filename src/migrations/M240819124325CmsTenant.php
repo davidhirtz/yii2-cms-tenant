@@ -8,7 +8,7 @@ use Hirtz\Cms\Migrations\Traits\I18nTablesTrait;
 use Hirtz\Cms\Migrations\Traits\SlugIndexTrait;
 use Hirtz\Cms\Models\Entry;
 use Hirtz\Skeleton\Db\Traits\MigrationTrait;
-use Hirtz\Tenant\models\Tenant;
+use Hirtz\Tenant\Models\Tenant;
 use Yii;
 use yii\db\Migration;
 

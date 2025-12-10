@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace Hirtz\Cms\tenant\behaviors;
 
 use Hirtz\Cms\Models\Entry;
-use Hirtz\Cms\Models\traits\EntryRelationTrait;
+use Hirtz\Cms\Models\Traits\EntryRelationTrait;
 use Hirtz\Cms\Module;
 use Hirtz\Cms\tenant\Bootstrap;
-use Hirtz\Tenant\models\Tenant;
+use Hirtz\Tenant\Models\Tenant;
 use Yii;
 use yii\base\Behavior;
 use yii\base\ModelEvent;

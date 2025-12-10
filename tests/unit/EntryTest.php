@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Hirtz\Cms\tenant\tests\unit;
 
 use Codeception\Test\Unit;
-use Hirtz\Cms\tenant\models\Entry;
-use Hirtz\Tenant\models\collections\TenantCollection;
-use Hirtz\Tenant\models\Tenant;
+use Hirtz\Cms\tenant\Models\Entry;
+use Hirtz\Tenant\Models\collections\TenantCollection;
+use Hirtz\Tenant\Models\Tenant;
 use Yii;
 
 class EntryTest extends Unit

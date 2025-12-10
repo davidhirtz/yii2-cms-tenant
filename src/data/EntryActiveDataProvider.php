@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Hirtz\Cms\tenant\data;
 
-use Hirtz\Cms\tenant\models\queries\EntryQuery;
+use Hirtz\Cms\tenant\Models\Queries\EntryQuery;
 use Yii;
 
 /**

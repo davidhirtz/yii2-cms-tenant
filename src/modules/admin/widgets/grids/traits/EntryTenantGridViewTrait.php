@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Grids\Traits;
 
 use Hirtz\Skeleton\Widgets\Grids\Toolbars\FilterDropdown;
-use Hirtz\Tenant\models\collections\TenantCollection;
-use Hirtz\Tenant\models\Tenant;
+use Hirtz\Tenant\Models\collections\TenantCollection;
+use Hirtz\Tenant\Models\Tenant;
 use Yii;
 
 trait EntryTenantGridViewTrait

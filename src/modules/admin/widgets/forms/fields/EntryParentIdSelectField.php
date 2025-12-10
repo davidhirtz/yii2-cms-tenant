@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Fields;
 
-use Hirtz\Cms\Models\queries\EntryQuery;
-use Hirtz\Cms\tenant\models\Entry;
+use Hirtz\Cms\Models\Queries\EntryQuery;
+use Hirtz\Cms\tenant\Models\Entry;
 use Yii;
 
 /**

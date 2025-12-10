@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\models\queries;
+namespace Hirtz\Cms\tenant\Models\Queries;
 
-use Hirtz\Tenant\models\queries\traits\TenantQueryTrait;
+use Hirtz\Tenant\Models\Queries\Traits\TenantQueryTrait;
 
-class EntryQuery extends \Hirtz\Cms\Models\queries\EntryQuery
+class EntryQuery extends \Hirtz\Cms\Models\Queries\EntryQuery
 {
     use TenantQueryTrait;
 

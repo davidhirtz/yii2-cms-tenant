@@ -6,7 +6,7 @@ namespace Hirtz\Cms\tenant\validators;
 
 use Hirtz\Cms\Models\Entry;
 use Hirtz\Cms\tenant\behaviors\EntryTenantBehavior;
-use Hirtz\Tenant\models\Tenant;
+use Hirtz\Tenant\Models\Tenant;
 use yii\base\NotSupportedException;
 use yii\validators\Validator;
 
