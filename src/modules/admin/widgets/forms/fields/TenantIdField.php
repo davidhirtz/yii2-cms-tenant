@@ -7,7 +7,7 @@ namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Fields;
 use Hirtz\Cms\tenant\assets\TenantDropdownAssetBundle;
 use Hirtz\Cms\tenant\Models\Entry;
 use Hirtz\Skeleton\Widgets\Forms\Fields\SelectField;
-use Hirtz\Tenant\Models\collections\TenantCollection;
+use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Yii;
 
 /**

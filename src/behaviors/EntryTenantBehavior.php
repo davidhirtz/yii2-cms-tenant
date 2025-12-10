@@ -9,7 +9,7 @@ use Hirtz\Cms\Models\Entry;
 use Hirtz\Cms\tenant\validators\TenantIdValidator;
 use davidhirtz\yii2\datetime\DateTime;
 use Hirtz\Skeleton\Models\Events\CreateValidatorsEvent;
-use Hirtz\Tenant\Models\collections\TenantCollection;
+use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Queries\TenantQuery;
 use Hirtz\Tenant\Models\Tenant;
 use Yii;

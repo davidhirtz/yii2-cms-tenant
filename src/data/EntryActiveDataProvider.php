@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Hirtz\Cms\tenant\data;
 
 use Hirtz\Cms\tenant\Models\Queries\EntryQuery;
+use Override;
 use Yii;
 
 /**
@@ -14,14 +15,14 @@ class EntryActiveDataProvider extends \Hirtz\Cms\Modules\Admin\Data\EntryActiveD
 {
     public int $tenantId;
 
-    #[\Override]
+    #[Override]
     public function init(): void
     {
-        $this->tenantId ??= (int)(Yii::$app->getRequest()->get('tenant') ?? Yii::$app->get('tenant')->id);
+        $this->tenantId ??= (int)(Yii::$app->getRequest()->get('tenant', Yii::$app->get('tenant')->id));
         parent::init();
     }
 
-    #[\Override]
+    #[Override]
     protected function initQuery(): void
     {
         $this->query->andWhere(['tenant_id' => $this->tenantId]);

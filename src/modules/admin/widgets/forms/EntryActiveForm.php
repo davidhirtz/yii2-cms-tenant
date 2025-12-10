@@ -7,7 +7,7 @@ namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms;
 use Hirtz\Cms\tenant\Models\Entry;
 use Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Fields\TenantIdField;
 use Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Traits\EntryTenantActiveFormTrait;
-use Hirtz\Tenant\Models\collections\TenantCollection;
+use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Stringable;
 use Yii;
 

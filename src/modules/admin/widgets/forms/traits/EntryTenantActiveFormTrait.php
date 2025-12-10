@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Traits;
 
 use Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Fields\TenantIdField;
-use Hirtz\Tenant\Models\collections\TenantCollection;
+use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Stringable;
 use Yii;
 
