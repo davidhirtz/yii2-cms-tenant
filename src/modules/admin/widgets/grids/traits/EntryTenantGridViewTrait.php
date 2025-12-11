@@ -7,6 +7,7 @@ namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Grids\Traits;
 use Hirtz\Skeleton\Widgets\Grids\Toolbars\FilterDropdown;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Tenant;
+use Hirtz\Tenant\Web\UrlManager;
 use Yii;
 
 trait EntryTenantGridViewTrait
@@ -16,14 +17,14 @@ trait EntryTenantGridViewTrait
 
     protected function getTenantDropdown(): ?FilterDropdown
     {
-        $tenantId = $this->tenantId ?? Yii::$app->request->get($this->tenantParamName);
-        $tenant = TenantCollection::getAll()[$tenantId] ?? Yii::$app->get('tenant');
+        $manager = Yii::$app->getUrlManager();
+        $tenant = $manager instanceof UrlManager ? $manager->getTenantFromRequest(Yii::$app->getRequest()) : null;
 
         $items = $this->getTenantDropdownItems();
 
         return count($items) > 1
             ? FilterDropdown::make()
-                ->label($tenant->name)
+                ->label($tenant->name ?? Yii::t('tenant', 'TENANT_NAME_PLURAL'))
                 ->items($this->getTenantDropdownItems())
                 ->param($this->tenantParamName)
             : null;

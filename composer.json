@@ -31,12 +31,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Hirtz\\Cms\\tenant\\": "src"
+      "Hirtz\\Cms\\Tenant\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Hirtz\\Cms\\tenant\\tests\\": "tests"
+      "Hirtz\\Cms\\Tenant\\Tests\\": "tests"
     }
   },
   "config": {
@@ -45,7 +45,7 @@
     }
   },
   "extra": {
-    "bootstrap": "Hirtz\\Cms\\tenant\\Bootstrap"
+    "bootstrap": "Hirtz\\Cms\\Tenant\\Bootstrap"
   },  "repositories": [
   {
     "type": "composer",

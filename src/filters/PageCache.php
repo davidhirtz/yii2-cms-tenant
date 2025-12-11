@@ -2,19 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\filters;
+namespace Hirtz\Cms\Tenant\Filters;
 
+use Hirtz\Tenant\Web\UrlManager;
+use Override;
 use Yii;
 
 class PageCache extends \Hirtz\Skeleton\Filters\PageCache
 {
-    #[\Override]
+    #[Override]
     public function init(): void
     {
         parent::init();
 
         if (!is_callable($this->variations)) {
-            $this->variations[] = Yii::$app->get('tenant')->id;
+            $manager = Yii::$app->getUrlManager();
+
+            if ($manager instanceof UrlManager && $manager->tenant !== null) {
+                $this->variations[] = $manager->tenant->id;
+            }
         }
     }
 }

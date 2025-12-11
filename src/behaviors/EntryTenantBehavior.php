@@ -12,6 +12,7 @@ use Hirtz\Skeleton\Models\Events\CreateValidatorsEvent;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Queries\TenantQuery;
 use Hirtz\Tenant\Models\Tenant;
+use Hirtz\Tenant\Web\UrlManager;
 use Yii;
 use yii\base\Behavior;
 use yii\db\AfterSaveEvent;
@@ -59,7 +60,11 @@ class EntryTenantBehavior extends Behavior
         $model = $this->owner;
 
         if (!$model->tenant_id) {
-            $model->populateTenantRelation(Yii::$app->get('tenant'));
+            $manager = Yii::$app->getUrlManager();
+
+            if ($manager instanceof UrlManager && $manager->tenant) {
+                $model->populateTenantRelation($manager->tenant);
+            }
         }
     }
 

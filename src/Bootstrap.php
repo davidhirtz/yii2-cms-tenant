@@ -17,6 +17,7 @@ use Hirtz\Skeleton\Filters\PageCache;
 use Hirtz\Skeleton\Web\Application;
 use Hirtz\Tenant\Models\Tenant;
 use Hirtz\Tenant\Modules\Admin\Widgets\Grids\TenantGridView;
+use Hirtz\Tenant\Web\UrlManager;
 use Yii;
 use yii\base\BootstrapInterface;
 use yii\base\Event;
@@ -32,7 +33,10 @@ class Bootstrap implements BootstrapInterface
         $this->attachTenantEntryBehavior();
 
         $app->extendComponent('sitemap', [
-            'variations' => fn () => Yii::$app->get('tenant')->id,
+            'variations' => function () {
+                $manager = Yii::$app->getUrlManager();
+                return $manager instanceof UrlManager ? $manager->tenant?->id : null;
+            },
         ]);
 
         $definitions = [

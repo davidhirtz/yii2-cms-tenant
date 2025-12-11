@@ -19,7 +19,7 @@ class EntryTest extends Unit
 
     public function testCreateIndexEntry(): void
     {
-        $tenant = Yii::$app->get('tenant');
+//        $tenant = Yii::$app->get('tenant');
 
         $entry = Entry::create();
         $entry->name = 'Home';
@@ -47,7 +47,7 @@ class EntryTest extends Unit
 
     public function testUpdateEntry(): void
     {
-        $tenant = Yii::$app->get('tenant');
+//        $tenant = Yii::$app->get('tenant');
 
         $entry = Entry::create();
         $entry->name = 'Test';
