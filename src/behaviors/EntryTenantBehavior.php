@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\Tenant\behaviors;
+namespace Hirtz\Cms\Tenant\Behaviors;
 
 use Hirtz\Cms\Bootstrap;
 use Hirtz\Cms\Models\Entry;
-use Hirtz\Cms\Tenant\validators\TenantIdValidator;
+use Hirtz\Cms\Tenant\Validators\TenantIdValidator;
 use davidhirtz\yii2\datetime\DateTime;
 use Hirtz\Skeleton\Models\Events\CreateValidatorsEvent;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Queries\TenantQuery;
 use Hirtz\Tenant\Models\Tenant;
-use Hirtz\Tenant\Web\UrlManager;
+use Override;
 use Yii;
 use yii\base\Behavior;
 use yii\db\AfterSaveEvent;
@@ -28,11 +28,10 @@ use yii\db\BaseActiveRecord;
  */
 class EntryTenantBehavior extends Behavior
 {
-    #[\Override]
+    #[Override]
     public function events(): array
     {
         return [
-            BaseActiveRecord::EVENT_BEFORE_VALIDATE => $this->onBeforeValidate(...),
             BaseActiveRecord::EVENT_AFTER_VALIDATE => $this->onAfterValidate(...),
             BaseActiveRecord::EVENT_AFTER_DELETE => $this->onAfterDelete(...),
             BaseActiveRecord::EVENT_AFTER_INSERT => $this->onAfterInsert(...),
@@ -52,20 +51,6 @@ class EntryTenantBehavior extends Behavior
     {
         $this->owner->populateRelation('tenant', $tenant);
         $this->owner->setAttribute('tenant_id', $tenant?->id);
-    }
-
-    protected function onBeforeValidate(): void
-    {
-        /** @var self $model */
-        $model = $this->owner;
-
-        if (!$model->tenant_id) {
-            $manager = Yii::$app->getUrlManager();
-
-            if ($manager instanceof UrlManager && $manager->tenant) {
-                $model->populateTenantRelation($manager->tenant);
-            }
-        }
     }
 
     protected function onAfterValidate(): void

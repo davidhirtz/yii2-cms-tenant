@@ -2,33 +2,50 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\Tenant\tests\unit;
+namespace Hirtz\Cms\Tenant\Tests\Models;
 
-use Codeception\Test\Unit;
+use Hirtz\Cms\Models\Section;
 use Hirtz\Cms\Tenant\Models\Entry;
+use Hirtz\Skeleton\Helpers\Url;
+use Hirtz\Skeleton\Test\TestCase;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Tenant;
+use Override;
 use Yii;
 
-class EntryTest extends Unit
+class EntryTest extends TestCase
 {
-    public function _before(): void
+    #[Override]
+    protected function setUp(): void
     {
-        Yii::$app->set('tenant', current(TenantCollection::getAll()));
+        $this->config = require(__DIR__ . '/../config.php');
+        parent::setUp();
+
+        TenantCollection::invalidateCache();
+    }
+
+    protected function tearDown(): void
+    {
+        TenantCollection::invalidateCache();
+        parent::tearDown();
     }
 
     public function testCreateIndexEntry(): void
     {
-//        $tenant = Yii::$app->get('tenant');
+        $tenant = TenantCollection::getDefault();
 
         $entry = Entry::create();
         $entry->name = 'Home';
         $entry->slug = $entry::getModule()->entryIndexSlug;
+
+        self::assertFalse($entry->save());
+        self::assertArrayHasKey('tenant_id', $entry->getErrors());
+
         $entry->populateTenantRelation($tenant);
 
         self::assertTrue($entry->save());
         self::assertTrue($entry->isIndex());
-        self::assertEquals($entry->tenant_id, $tenant->id);
+        self::assertEquals($tenant->id, $entry->tenant_id);
 
         $tenant->refresh();
 
@@ -45,15 +62,22 @@ class EntryTest extends Unit
         self::assertNotEmpty($entry->getErrors('tenant_id'));
     }
 
-    public function testUpdateEntry(): void
+    public function testUpdateAndDeleteEntry(): void
     {
-//        $tenant = Yii::$app->get('tenant');
+        $tenant = TenantCollection::getDefault();
 
         $entry = Entry::create();
         $entry->name = 'Test';
         $entry->populateTenantRelation($tenant);
 
-        self::assertTrue($entry->save());
+        self::assertTrue($entry->insert());
+
+        $section = Section::create();
+        $section->populateEntryRelation($entry);
+
+        self::assertTrue($section->insert());
+
+        self::assertEquals('https://www.domain.localhost/test', Url::toRoute($entry->getRoute()));
 
         $tenant->refresh();
         self::assertEquals(1, $tenant->getAttribute('entry_count'));
@@ -62,7 +86,7 @@ class EntryTest extends Unit
         $newTenant->loadDefaultValues();
         $newTenant->name = 'New Tenant';
         $newTenant->language = Yii::$app->sourceLanguage;
-        $newTenant->url = 'https://test.localhost';
+        $newTenant->url = 'https://www.new-domain.localhost';
         $newTenant->save();
 
         self::assertTrue($newTenant->save());
@@ -71,32 +95,21 @@ class EntryTest extends Unit
 
         self::assertTrue($entry->save());
         self::assertEquals($newTenant->id, $entry->tenant_id);
+        self::assertEquals('https://www.new-domain.localhost/test', Url::toRoute($entry->getRoute()));
 
         $tenant->refresh();
         self::assertEquals(0, $tenant->getAttribute('entry_count'));
 
         $newTenant->refresh();
         self::assertEquals(1, $newTenant->getAttribute('entry_count'));
+
+        self::assertFalse($newTenant->delete());
+        self::assertContains('This tenant cannot be deleted because it is linked to other relations.', $newTenant->getFirstErrors());
+
+        self::assertEquals(1, $entry->delete());
+
+        $newTenant->refresh();
+        self::assertEquals(0, $newTenant->getAttribute('entry_count'));
+        self::assertEquals(1, $newTenant->delete());
     }
-
-    //    public function testDeleteEntry(): void
-    //    {
-    //        $entry = $this->tester->grabEntryFixture('page-enabled');
-    //        $post = $this->tester->grabEntryFixture('post-1');
-    //
-    //        self::assertTrue(!!$entry->delete());
-    //        self::assertNull(TestEntry::findOne($entry->id));
-    //        self::assertNull(TestEntry::findOne($post->id));
-    //    }
-
-    //    public function testEntryAssets(): void
-    //    {
-    //        $entry = $this->tester->grabEntryFixture('page-enabled');
-    //
-    //        self::assertEquals(6, count($entry->assets));
-    //        self::assertEquals(1, count($entry->getVisibleAssets()));
-    //
-    //        $entry->populateAssetRelations();
-    //        self::assertEquals(2, count($entry->assets));
-    //    }
 }

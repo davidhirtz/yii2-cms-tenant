@@ -9,10 +9,10 @@ use Hirtz\Cms\Models\Queries\EntryQuery;
 use Hirtz\Cms\Modules\Admin\Data\EntryActiveDataProvider;
 use Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryActiveForm;
 use Hirtz\Cms\Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField;
-use Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryGridView;
-use Hirtz\Cms\Modules\Admin\Widgets\Forms\SectionParentEntryGridView;
-use Hirtz\Cms\Tenant\behaviors\EntryTenantBehavior;
-use Hirtz\Cms\Tenant\behaviors\TenantEntryBehavior;
+use Hirtz\Cms\Modules\Admin\Widgets\Grids\EntryGridView;
+use Hirtz\Cms\Modules\Admin\Widgets\Grids\SectionParentEntryGridView;
+use Hirtz\Cms\Tenant\Behaviors\EntryTenantBehavior;
+use Hirtz\Cms\Tenant\Behaviors\TenantEntryBehavior;
 use Hirtz\Skeleton\Filters\PageCache;
 use Hirtz\Skeleton\Web\Application;
 use Hirtz\Tenant\Models\Tenant;
@@ -40,13 +40,13 @@ class Bootstrap implements BootstrapInterface
         ]);
 
         $definitions = [
-            Entry::class => models\Entry::class,
-            EntryActiveDataProvider::class => data\EntryActiveDataProvider::class,
+            Entry::class => Models\Entry::class,
+            EntryActiveDataProvider::class => Data\EntryActiveDataProvider::class,
             EntryActiveForm::class => Modules\Admin\Widgets\Forms\EntryActiveForm::class,
             EntryGridView::class => Modules\Admin\Widgets\Grids\EntryGridView::class,
             EntryParentIdSelectField::class => Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField::class,
-            EntryQuery::class => models\Queries\EntryQuery::class,
-            PageCache::class => filters\PageCache::class,
+            EntryQuery::class => Models\Queries\EntryQuery::class,
+            PageCache::class => Filters\PageCache::class,
             SectionParentEntryGridView::class => Modules\Admin\Widgets\Grids\SectionParentEntryGridView::class,
             TenantGridView::class => Modules\Admin\Widgets\Grids\TenantGridView::class,
         ];

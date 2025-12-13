@@ -6,7 +6,7 @@ namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids;
 
 use Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids\Traits\EntryTenantGridViewTrait;
 
-class EntryGridView extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryGridView
+class EntryGridView extends \Hirtz\Cms\Modules\Admin\Widgets\Grids\EntryGridView
 {
     use EntryTenantGridViewTrait;
 

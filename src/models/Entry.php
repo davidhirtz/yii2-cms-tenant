@@ -5,7 +5,8 @@ declare(strict_types=1);
 namespace Hirtz\Cms\Tenant\Models;
 
 use Hirtz\Cms\Models\Queries\EntryQuery;
-use Hirtz\Cms\Tenant\behaviors\EntryTenantBehavior;
+use Hirtz\Cms\Tenant\Behaviors\EntryTenantBehavior;
+use Override;
 use Yii;
 
 /**
@@ -24,7 +25,7 @@ class Entry extends \Hirtz\Cms\Models\Entry
         'parent_slug',
     ];
 
-    #[\Override]
+    #[Override]
     public function getRoute(): false|array
     {
         $route = parent::getRoute();
@@ -37,7 +38,7 @@ class Entry extends \Hirtz\Cms\Models\Entry
             : false;
     }
 
-    #[\Override]
+    #[Override]
     public function findSiblings(): EntryQuery
     {
         return parent::findSiblings()->andWhere(['tenant_id' => $this->tenant_id]);
@@ -50,7 +51,7 @@ class Entry extends \Hirtz\Cms\Models\Entry
         return $behavior;
     }
 
-    #[\Override]
+    #[Override]
     public function attributeLabels(): array
     {
         return [

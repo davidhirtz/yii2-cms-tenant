@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Forms\Fields;
 
-use Hirtz\Cms\Tenant\assets\TenantDropdownAssetBundle;
+use Hirtz\Cms\Tenant\Assets\TenantDropdownAssetBundle;
 use Hirtz\Cms\Tenant\Models\Entry;
 use Hirtz\Skeleton\Widgets\Forms\Fields\SelectField;
 use Hirtz\Tenant\Models\Collections\TenantCollection;

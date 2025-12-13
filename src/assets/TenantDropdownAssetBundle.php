@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\Tenant\assets;
+namespace Hirtz\Cms\Tenant\Assets;
 
 use yii\web\AssetBundle;
 
 class TenantDropdownAssetBundle extends AssetBundle
 {
     public $js = ['dropdown.js'];
-    public $sourcePath = __DIR__ . '/../../assets/dist';
+    public $sourcePath = __DIR__ . '/../../resources/assets/dist';
 }

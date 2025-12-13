@@ -2,13 +2,14 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\Tenant\behaviors;
+namespace Hirtz\Cms\Tenant\Behaviors;
 
 use Hirtz\Cms\Models\Entry;
 use Hirtz\Cms\Models\Traits\EntryRelationTrait;
 use Hirtz\Cms\Module;
 use Hirtz\Cms\Tenant\Bootstrap;
 use Hirtz\Tenant\Models\Tenant;
+use Override;
 use Yii;
 use yii\base\Behavior;
 use yii\base\ModelEvent;
@@ -23,7 +24,7 @@ class TenantEntryBehavior extends Behavior
 {
     use EntryRelationTrait;
 
-    #[\Override]
+    #[Override]
     public function events(): array
     {
         return [
