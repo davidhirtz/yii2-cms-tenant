@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms;
+namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Forms;
 
-use Hirtz\Cms\tenant\Models\Entry;
-use Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Fields\TenantIdField;
-use Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Traits\EntryTenantActiveFormTrait;
+use Hirtz\Cms\Tenant\Models\Entry;
+use Hirtz\Cms\Tenant\Modules\Admin\Widgets\Forms\Fields\TenantIdField;
+use Hirtz\Cms\Tenant\Modules\Admin\Widgets\Forms\Traits\EntryTenantActiveFormTrait;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Stringable;
 use Yii;

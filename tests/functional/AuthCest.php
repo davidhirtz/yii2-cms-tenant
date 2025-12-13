@@ -6,9 +6,9 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\tests\functional;
+namespace Hirtz\Cms\Tenant\tests\functional;
 
-use Hirtz\Cms\tenant\tests\support\FunctionalTester;
+use Hirtz\Cms\Tenant\tests\support\FunctionalTester;
 use Hirtz\Skeleton\Codeception\fixtures\UserFixtureTrait;
 use Hirtz\Skeleton\Codeception\functional\BaseCest;
 use Hirtz\Skeleton\Models\User;

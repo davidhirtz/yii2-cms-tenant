@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\Models;
+namespace Hirtz\Cms\Tenant\Models;
 
 use Hirtz\Cms\Models\Queries\EntryQuery;
-use Hirtz\Cms\tenant\behaviors\EntryTenantBehavior;
+use Hirtz\Cms\Tenant\behaviors\EntryTenantBehavior;
 use Yii;
 
 /**

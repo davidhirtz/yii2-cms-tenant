@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Hirtz\Cms\Tenant\Data;
 
-use Hirtz\Cms\tenant\Models\Queries\EntryQuery;
+use Hirtz\Cms\Tenant\Models\Queries\EntryQuery;
 use Hirtz\Tenant\Web\UrlManager;
 use Override;
 use Yii;

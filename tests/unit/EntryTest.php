@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\tests\unit;
+namespace Hirtz\Cms\Tenant\tests\unit;
 
 use Codeception\Test\Unit;
-use Hirtz\Cms\tenant\Models\Entry;
+use Hirtz\Cms\Tenant\Models\Entry;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Tenant;
 use Yii;
@@ -62,7 +62,7 @@ class EntryTest extends Unit
         $newTenant->loadDefaultValues();
         $newTenant->name = 'New Tenant';
         $newTenant->language = Yii::$app->sourceLanguage;
-        $newTenant->url = 'https://example.com';
+        $newTenant->url = 'https://test.localhost';
         $newTenant->save();
 
         self::assertTrue($newTenant->save());

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\assets;
+namespace Hirtz\Cms\Tenant\assets;
 
 use yii\web\AssetBundle;
 

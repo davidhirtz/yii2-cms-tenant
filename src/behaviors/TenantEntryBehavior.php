@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\behaviors;
+namespace Hirtz\Cms\Tenant\behaviors;
 
 use Hirtz\Cms\Models\Entry;
 use Hirtz\Cms\Models\Traits\EntryRelationTrait;
 use Hirtz\Cms\Module;
-use Hirtz\Cms\tenant\Bootstrap;
+use Hirtz\Cms\Tenant\Bootstrap;
 use Hirtz\Tenant\Models\Tenant;
 use Yii;
 use yii\base\Behavior;

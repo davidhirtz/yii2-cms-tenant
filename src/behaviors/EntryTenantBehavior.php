@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\behaviors;
+namespace Hirtz\Cms\Tenant\behaviors;
 
 use Hirtz\Cms\Bootstrap;
 use Hirtz\Cms\Models\Entry;
-use Hirtz\Cms\tenant\validators\TenantIdValidator;
+use Hirtz\Cms\Tenant\validators\TenantIdValidator;
 use davidhirtz\yii2\datetime\DateTime;
 use Hirtz\Skeleton\Models\Events\CreateValidatorsEvent;
 use Hirtz\Tenant\Models\Collections\TenantCollection;

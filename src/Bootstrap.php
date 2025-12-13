@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant;
+namespace Hirtz\Cms\Tenant;
 
 use Hirtz\Cms\Models\Entry;
 use Hirtz\Cms\Models\Queries\EntryQuery;
@@ -11,8 +11,8 @@ use Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryActiveForm;
 use Hirtz\Cms\Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField;
 use Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryGridView;
 use Hirtz\Cms\Modules\Admin\Widgets\Forms\SectionParentEntryGridView;
-use Hirtz\Cms\tenant\behaviors\EntryTenantBehavior;
-use Hirtz\Cms\tenant\behaviors\TenantEntryBehavior;
+use Hirtz\Cms\Tenant\behaviors\EntryTenantBehavior;
+use Hirtz\Cms\Tenant\behaviors\TenantEntryBehavior;
 use Hirtz\Skeleton\Filters\PageCache;
 use Hirtz\Skeleton\Web\Application;
 use Hirtz\Tenant\Models\Tenant;
@@ -60,7 +60,7 @@ class Bootstrap implements BootstrapInterface
             'enableI18nTables' => false,
         ]);
 
-        $app->setMigrationNamespace('Hirtz\Cms\tenant\Migrations');
+        $app->setMigrationNamespace('Hirtz\Cms\Tenant\Migrations');
     }
 
     protected function attachEntryTenantBehavior(): void

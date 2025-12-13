@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Forms\Fields;
+namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Forms\Fields;
 
 use Hirtz\Cms\Models\Queries\EntryQuery;
-use Hirtz\Cms\tenant\Models\Entry;
+use Hirtz\Cms\Tenant\Models\Entry;
 use Yii;
 
 /**

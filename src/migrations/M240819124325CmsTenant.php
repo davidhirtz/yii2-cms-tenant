@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\Migrations;
+namespace Hirtz\Cms\Tenant\Migrations;
 
 use Hirtz\Cms\Migrations\Traits\I18nTablesTrait;
 use Hirtz\Cms\Migrations\Traits\SlugIndexTrait;

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\Modules\Admin\Widgets\Grids\Traits;
+namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids\Traits;
 
-use Hirtz\Cms\tenant\Models\Entry;
+use Hirtz\Cms\Tenant\Models\Entry;
 use Hirtz\Skeleton\Widgets\Grids\Columns\BadgeColumn;
 use Hirtz\Skeleton\Widgets\Grids\Columns\Column;
 use Hirtz\Tenant\Models\Tenant;

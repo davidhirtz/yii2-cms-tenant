@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\validators;
+namespace Hirtz\Cms\Tenant\validators;
 
 use Hirtz\Cms\Models\Entry;
-use Hirtz\Cms\tenant\behaviors\EntryTenantBehavior;
+use Hirtz\Cms\Tenant\behaviors\EntryTenantBehavior;
 use Hirtz\Tenant\Models\Tenant;
 use yii\base\NotSupportedException;
 use yii\validators\Validator;

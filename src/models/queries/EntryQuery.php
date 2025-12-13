@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Hirtz\Cms\tenant\Models\Queries;
+namespace Hirtz\Cms\Tenant\Models\Queries;
 
 use Hirtz\Tenant\Models\Queries\Traits\TenantQueryTrait;
 
