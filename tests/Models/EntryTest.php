@@ -10,11 +10,14 @@ use Hirtz\Skeleton\Helpers\Url;
 use Hirtz\Skeleton\Test\TestCase;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Tenant;
+use Hirtz\Tenant\Test\Traits\TenantFixtureTrait;
 use Override;
 use Yii;
 
 class EntryTest extends TestCase
 {
+    use TenantFixtureTrait;
+
     #[Override]
     protected function setUp(): void
     {
