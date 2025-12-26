@@ -7,7 +7,7 @@ namespace Hirtz\Cms\Tenant\Tests\Models;
 use Hirtz\Cms\Models\Section;
 use Hirtz\Cms\Tenant\Models\Entry;
 use Hirtz\Skeleton\Helpers\Url;
-use Hirtz\Skeleton\Test\TestCase;
+use Hirtz\Tenant\Test\TestCase;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Tenant;
 use Hirtz\Tenant\Test\Traits\TenantFixtureTrait;
@@ -21,16 +21,8 @@ class EntryTest extends TestCase
     #[Override]
     protected function setUp(): void
     {
-        $this->config = require(__DIR__ . '/../config.php');
+        $this->config = require(__DIR__ . '/../../config/test.php');
         parent::setUp();
-
-        TenantCollection::invalidateCache();
-    }
-
-    protected function tearDown(): void
-    {
-        TenantCollection::invalidateCache();
-        parent::tearDown();
     }
 
     public function testCreateIndexEntry(): void
