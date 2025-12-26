@@ -5,11 +5,9 @@ declare(strict_types=1);
 namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Forms;
 
 use Hirtz\Cms\Tenant\Models\Entry;
-use Hirtz\Cms\Tenant\Modules\Admin\Widgets\Forms\Fields\TenantIdField;
 use Hirtz\Cms\Tenant\Modules\Admin\Widgets\Forms\Traits\EntryTenantActiveFormTrait;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
-use Stringable;
-use Yii;
+use Override;
 
 /**
  * @template T of Entry
@@ -19,15 +17,21 @@ class EntryActiveForm extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryActive
 {
     use EntryTenantActiveFormTrait;
 
-    #[\Override]
+    #[Override]
     protected function configure(): void
     {
         $this->setTenantFromRequest();
 
         parent::configure();
 
-        if (count(TenantCollection::getAll()) > 1) {
-            array_unshift($this->rows, [$this->getTenantIdField()]);
-        }
+        $this->rows = count(TenantCollection::getAll()) > 1
+            ? [
+                [$this->getTenantIdField()],
+                ...$this->rows,
+            ]
+            : [
+                ...$this->rows,
+                [$this->getTenantIdField()],
+            ];
     }
 }

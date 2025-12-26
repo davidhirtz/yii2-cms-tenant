@@ -8,6 +8,7 @@ use Hirtz\Cms\Tenant\Assets\TenantDropdownAssetBundle;
 use Hirtz\Cms\Tenant\Models\Entry;
 use Hirtz\Skeleton\Widgets\Forms\Fields\SelectField;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
+use Override;
 use Yii;
 
 /**
@@ -16,10 +17,11 @@ use Yii;
  */
 class TenantIdField extends SelectField
 {
-    #[\Override]
+    #[Override]
     protected function configure(): void
     {
         $this->attributes['data-id'] ??= 'tenant';
+        $this->attributes['required'] ??= true;
 
         $this->label ??= Yii::t('tenant', 'TENANT_NAME');
         $this->property ??= 'tenant_id';

@@ -125,9 +125,6 @@ class EntryTenantBehavior extends Behavior
             : 'entry_count';
     }
 
-    /**
-     * @noinspection PhpUnused
-     */
     public function getTenantRouteParams(): false|array
     {
         return [

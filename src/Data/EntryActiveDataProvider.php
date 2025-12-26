@@ -23,7 +23,7 @@ class EntryActiveDataProvider extends \Hirtz\Cms\Modules\Admin\Data\EntryActiveD
 
         if (!$tenantId) {
             $manager = Yii::$app->getUrlManager();
-            $tenantId = $manager instanceof UrlManager ? $manager->tenant->id : null;
+            $tenantId = $manager instanceof UrlManager ? $manager->tenant?->id : null;
         }
 
         $this->tenantId ??= $tenantId;
