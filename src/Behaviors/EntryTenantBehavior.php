@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Hirtz\Cms\Tenant\Behaviors;
 
+use davidhirtz\yii2\datetime\DateTime;
 use Hirtz\Cms\Bootstrap;
 use Hirtz\Cms\Models\Entry;
 use Hirtz\Cms\Tenant\Validators\TenantIdValidator;
-use davidhirtz\yii2\datetime\DateTime;
 use Hirtz\Skeleton\Models\Events\CreateValidatorsEvent;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Queries\TenantQuery;
@@ -104,8 +104,12 @@ class EntryTenantBehavior extends Behavior
         $event->validators->append(new TenantIdValidator());
     }
 
-    protected function recalculateTenantEntryCount(int $tenantId): void
+    protected function recalculateTenantEntryCount(?int $tenantId): void
     {
+        if (null === $tenantId) {
+            return;
+        }
+
         $entryCount = Entry::find()
             ->where(['tenant_id' => $tenantId])
             ->count();
@@ -125,10 +129,10 @@ class EntryTenantBehavior extends Behavior
             : 'entry_count';
     }
 
-    public function getTenantRouteParams(): false|array
+    public function getTenantRouteParams(): array
     {
         return [
-            'tenant' => TenantCollection::getAll()[$this->owner->getAttribute('tenant_id')],
+            'tenant' => TenantCollection::getAll()[$this->owner->getAttribute('tenant_id')] ?? null,
         ];
     }
 }

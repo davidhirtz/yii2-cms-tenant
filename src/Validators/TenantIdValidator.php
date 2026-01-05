@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Hirtz\Cms\Tenant\Validators;
 
-use Hirtz\Cms\Models\Entry;
 use Hirtz\Cms\Tenant\Behaviors\EntryTenantBehavior;
-use Hirtz\Tenant\Models\Tenant;
+use Hirtz\Cms\Tenant\Models\Entry;
+use Hirtz\Tenant\Models\Collections\TenantCollection;
+use Override;
 use yii\base\NotSupportedException;
 use yii\validators\Validator;
 
@@ -22,25 +23,20 @@ class TenantIdValidator extends Validator
     /**
      * @param Entry $model
      */
-    #[\Override]
+    #[Override]
     public function validateAttribute($model, $attribute): void
     {
         $tenantId = (int)$model->getAttribute($attribute);
-        $model->setAttribute($attribute, $tenantId);
+        $tenant = TenantCollection::getAll()[$tenantId] ?? null;
 
-        if (!$model->isAttributeChanged($attribute)) {
-            return;
+        if ($tenantId && !$tenant) {
+            $model->addInvalidAttributeError('tenant_id');
         }
 
-        $tenantId = $model->getAttribute($attribute);
-        $exists = Tenant::find()->where(['id' => $tenantId])->exists();
-
-        if (!$exists) {
-            $model->addInvalidAttributeError($attribute);
-        }
+        $model->populateTenantRelation($tenant);
     }
 
-    #[\Override]
+    #[Override]
     public function validate($value, &$error = null): bool
     {
         throw new NotSupportedException(static::class . ' does not support validate().');

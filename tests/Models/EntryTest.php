@@ -7,9 +7,9 @@ namespace Hirtz\Cms\Tenant\Tests\Models;
 use Hirtz\Cms\Models\Section;
 use Hirtz\Cms\Tenant\Models\Entry;
 use Hirtz\Skeleton\Helpers\Url;
-use Hirtz\Tenant\Test\TestCase;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Tenant;
+use Hirtz\Tenant\Test\TestCase;
 use Hirtz\Tenant\Test\Traits\TenantFixtureTrait;
 use Override;
 use Yii;
@@ -32,10 +32,6 @@ class EntryTest extends TestCase
         $entry = Entry::create();
         $entry->name = 'Home';
         $entry->slug = $entry::getModule()->entryIndexSlug;
-
-        self::assertFalse($entry->save());
-        self::assertArrayHasKey('tenant_id', $entry->getErrors());
-
         $entry->populateTenantRelation($tenant);
 
         self::assertTrue($entry->save());
