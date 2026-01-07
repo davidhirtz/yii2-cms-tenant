@@ -14,7 +14,7 @@ use Yii;
  */
 class EntryActiveDataProvider extends \Hirtz\Cms\Modules\Admin\Data\EntryActiveDataProvider
 {
-    public ?int $tenantId;
+    public ?int $tenantId = null;
 
     #[Override]
     public function init(): void

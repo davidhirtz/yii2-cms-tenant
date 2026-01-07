@@ -19,6 +19,7 @@ use yii\base\ModelEvent;
  * bootstrap by {@see Bootstrap}.
  *
  * @property Tenant $owner
+ * @mixin Tenant
  */
 class TenantEntryBehavior extends Behavior
 {

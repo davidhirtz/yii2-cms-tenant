@@ -10,6 +10,7 @@ class SectionParentEntryGridView extends \Hirtz\Cms\Modules\Admin\Widgets\Grids\
 {
     use EntryTenantGridViewTrait;
 
+    #[\Override]
     public function configure(): void
     {
         parent::configure();
