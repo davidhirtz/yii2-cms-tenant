@@ -56,7 +56,7 @@ class Bootstrap implements BootstrapInterface
         }
 
         $app->setModule('cms', [
-            ...Yii::$app->getModules()['cms'],
+            ...(Yii::$app->getModules()['cms'] ?? []),
             'enableI18nTables' => false,
         ]);
 

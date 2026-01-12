@@ -10,8 +10,6 @@
       "homepage": "https://www.davidhirtz.com/"
     }
   ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "require": {
     "php": "^8.3",
     "davidhirtz/yii2-cms": "next-dev",
@@ -33,11 +31,6 @@
       "Hirtz\\Cms\\Tenant\\Tests\\": "tests"
     }
   },
-  "config": {
-    "allow-plugins": {
-      "yiisoft/yii2-composer": true
-    }
-  },
   "extra": {
     "bootstrap": "Hirtz\\Cms\\Tenant\\Bootstrap"
   },
@@ -47,11 +40,13 @@
       "url": "https://asset-packagist.org"
     }
   ],
+  "config": {
+    "allow-plugins": {
+      "yiisoft/yii2-composer": true
+    }
+  },
   "scripts": {
-    "check-cs": "ecs check --ansi",
-    "fix-cs": "ecs check --ansi --fix",
-    "phpstan": "phpstan --memory-limit=1G",
-    "rector": "rector",
-    "test": "codecept run"
+    "phpstan": "phpstan --memory-limit=2G",
+    "test": "phpunit"
   }
 }
