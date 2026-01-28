@@ -1,4 +1,4 @@
-## 1.2.4 (in development)
+## 1.2.4 (Jan 28, 2026)
 
 - PHP 8.5 compatibility fixes
 

@@ -16,22 +16,22 @@ trait EntryGridViewTrait
             [
                 [
                     'content' => $this->tenantDropdown(),
-                    'options' => ['class' => 'col-12 col-md'],
+                    'options' => ['class' => 'col-12 col-md-3'],
                     'visible' => count(TenantCollection::getAll()) > 1,
                 ],
                 [
                     'content' => $this->typeDropdown(),
-                    'options' => ['class' => 'col-12 col-md'],
+                    'options' => ['class' => 'col-12 col-md-3'],
                     'visible' => $this->showTypeDropdown,
                 ],
                 [
                     'content' => $this->categoryDropdown(),
-                    'options' => ['class' => 'col-12 col-md'],
+                    'options' => ['class' => 'col-12 col-md-3'],
                     'visible' => $this->showCategoryDropdown,
                 ],
                 [
                     'content' => $this->getSearchInput(),
-                    'options' => ['class' => 'col-12 col-md'],
+                    'options' => ['class' => 'col-12 col-md-3'],
                 ],
                 'options' => [
                     'class' => 'justify-content-between',
