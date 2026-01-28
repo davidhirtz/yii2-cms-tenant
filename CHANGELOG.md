@@ -1,22 +1,26 @@
-# 3.0.0
+#h 3.0.0
 
 - Skipped version 2 for major refactor to align with other packages
 - Removed `TenantIdFieldBehavior`
 - Renamed `TenantDropdownTrait`, `EntryCountColumnTrait` and `AssetBundle`
 
-# 1.2.3 (Dec 6, 2025)
+## 1.2.4 (Jan 28, 2026)
+
+- PHP 8.5 compatibility fixes
+
+## 1.2.3 (Dec 6, 2025)
 
 - Fixed `TenantEntryBehavior::onBeforeDelete()` to prevent deletion of a tenant that still has entries
 
-# 1.2.2 (Nov 24, 2025)
+## 1.2.2 (Nov 24, 2025)
 
 - Added `EntryGridViewTrait` and `SectionParentEntryGridView`
 
-# 1.2.1 (Jul 15, 2025)
+## 1.2.1 (Jul 15, 2025)
 
 - Added slug index creation
 
-# 1.2.0 (May 26, 2025)
+## 1.2.0 (May 26, 2025)
 
 - Requires PHP 8.3+
 - Added GitHub CI
