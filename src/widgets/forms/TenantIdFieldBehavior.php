@@ -54,7 +54,9 @@ class TenantIdFieldBehavior extends Behavior
 
         if (count($items) > 1) {
             foreach (TenantCollection::getAll() as $tenant) {
-                $options['options'][$tenant->id]['data-value'][] = $tenant->getAbsoluteUrl();
+                foreach ($this->owner->model->getI18nAttributeNames('slug') as $language => $attribute) {
+                    $options['options'][$tenant->id]['data-value'][] = Yii::$app->getI18n()->callback($language, fn () => $tenant->getAbsoluteUrl());
+                }
             }
 
             return $this->owner->field($this->owner->model, 'tenant_id')

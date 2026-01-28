@@ -1,3 +1,7 @@
+## 1.2.5 (in development)
+
+- Fixed URLs in `TenantIdFieldBehavior` if `UrlManager::i18nUrl` is enabled
+
 ## 1.2.4 (Jan 28, 2026)
 
 - PHP 8.5 compatibility fixes
