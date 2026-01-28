@@ -1,4 +1,4 @@
-#h 3.0.0
+## 3.0.0
 
 - Skipped version 2 for major refactor to align with other packages
 - Removed `TenantIdFieldBehavior`
