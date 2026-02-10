@@ -1,4 +1,4 @@
-## 1.2.5 (in development)
+## 1.2.5 (Feb 10, 2026)
 
 - Fixed URLs in `TenantIdFieldBehavior` if `UrlManager::i18nUrl` is enabled
 
