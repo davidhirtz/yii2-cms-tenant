@@ -5,12 +5,13 @@ declare(strict_types=1);
 namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids;
 
 use Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids\Traits\TenantEntryGridViewTrait;
+use Override;
 
 class TenantGridView extends \Hirtz\Tenant\Modules\Admin\Widgets\Grids\TenantGridView
 {
     use TenantEntryGridViewTrait;
 
-    #[\Override]
+    #[Override]
     protected function configure(): void
     {
         $this->columns ??= [
