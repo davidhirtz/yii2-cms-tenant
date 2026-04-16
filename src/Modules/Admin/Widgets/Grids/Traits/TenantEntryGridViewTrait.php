@@ -16,7 +16,7 @@ trait TenantEntryGridViewTrait
     {
         return BadgeColumn::make()
             ->property(Entry::instance()->getTenantEntryCountAttributeName())
-            ->label(Yii::t('cms', 'Entries'))
+            ->title(Yii::t('cms', 'Entries'))
             ->url(fn (Tenant $tenant) => ['/admin/cms/entry/index', 'tenant' => $tenant->id]);
     }
 }
