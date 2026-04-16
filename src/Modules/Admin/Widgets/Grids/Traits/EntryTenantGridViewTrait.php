@@ -26,7 +26,7 @@ trait EntryTenantGridViewTrait
             ? FilterDropdown::make()
                 ->label($tenant->name ?? Yii::t('tenant', 'TENANT_NAME_PLURAL'))
                 ->items($this->getTenantDropdownItems())
-                ->param($this->tenantParamName)
+                ->paramName($this->tenantParamName)
             : null;
     }
 
