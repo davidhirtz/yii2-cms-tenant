@@ -5,13 +5,14 @@ declare(strict_types=1);
 namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids;
 
 use Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids\Traits\EntryTenantGridViewTrait;
+use Override;
 
 class SectionParentEntryGridView extends \Hirtz\Cms\Modules\Admin\Widgets\Grids\SectionParentEntryGridView
 {
     use EntryTenantGridViewTrait;
 
-    #[\Override]
-    public function configure(): void
+    #[Override]
+    protected function configure(): void
     {
         parent::configure();
 
