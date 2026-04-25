@@ -131,8 +131,9 @@ class EntryTenantBehavior extends Behavior
 
     public function getTenantRouteParams(): array
     {
+        $tenantId = $this->owner->getAttribute('tenant_id');
         return [
-            'tenant' => TenantCollection::getAll()[$this->owner->getAttribute('tenant_id')] ?? null,
+            'tenant' => $tenantId ? TenantCollection::getAll()[$tenantId] ?? null : null,
         ];
     }
 }
