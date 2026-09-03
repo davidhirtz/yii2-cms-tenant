@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids\Traits;
 
+use Hirtz\Skeleton\I18n\Lang;
 use Hirtz\Skeleton\Widgets\Grids\Toolbars\FilterDropdown;
 use Hirtz\Tenant\Models\Collections\TenantCollection;
 use Hirtz\Tenant\Models\Tenant;
@@ -24,7 +25,7 @@ trait EntryTenantGridViewTrait
 
         return count($items) > 1
             ? FilterDropdown::make()
-                ->label($tenant->name ?? Yii::t('tenant', 'TENANT_NAME_PLURAL'))
+                ->label($tenant->name ?? Lang::t('tenant', 'TENANT_NAME_PLURAL'))
                 ->items($this->getTenantDropdownItems())
                 ->paramName($this->tenantParamName)
             : null;

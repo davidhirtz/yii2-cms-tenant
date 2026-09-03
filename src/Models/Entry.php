@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Hirtz\Cms\Tenant\Models;
 
+use Hirtz\Skeleton\I18n\Lang;
 use Hirtz\Cms\Models\Queries\EntryQuery;
 use Hirtz\Cms\Tenant\Behaviors\EntryTenantBehavior;
 use Override;
@@ -39,6 +40,15 @@ class Entry extends \Hirtz\Cms\Models\Entry
     }
 
     #[Override]
+    public function getRouteParams(): array
+    {
+        return [
+            ...parent::getRouteParams(),
+            ...$this->getEntryTenantBehavior()->getTenantRouteParams(),
+        ];
+    }
+
+    #[Override]
     public function findSiblings(): EntryQuery
     {
         return parent::findSiblings()->andWhere(['tenant_id' => $this->tenant_id]);
@@ -56,7 +66,7 @@ class Entry extends \Hirtz\Cms\Models\Entry
     {
         return [
             ...parent::attributeLabels(),
-            'tenant_id' => Yii::t('tenant', 'TENANT_NAME'),
+            'tenant_id' => Lang::t('tenant', 'TENANT_NAME'),
         ];
     }
 }
