@@ -18,8 +18,9 @@ use yii\base\ModelEvent;
  * TenantEntryBehavior extends {@see Tenant} by updating related entries on deletion. This behavior is attached on
  * bootstrap by {@see Bootstrap}.
  *
- * @property Tenant $owner
  * @mixin Tenant
+ *
+ * @extends Behavior<Tenant>
  */
 class TenantEntryBehavior extends Behavior
 {

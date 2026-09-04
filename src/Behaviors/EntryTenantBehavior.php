@@ -22,9 +22,10 @@ use yii\db\BaseActiveRecord;
  * EntryTenantBehavior extends {@see Entry} by providing `tenant_id` validation. This behavior is attached on module
  * bootstrap by {@see Bootstrap}.
  *
- * @property Entry $owner
  * @property int $tenant_id
  * @property Tenant $tenant {@see self::getTenant()}
+ *
+ * @extends Behavior<Entry>
  */
 class EntryTenantBehavior extends Behavior
 {
