@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Hirtz\Cms\Tenant\Models\Queries;
 
 use Hirtz\Tenant\Models\Queries\Traits\TenantQueryTrait;
+use Override;
 
 /**
  * @extends \Hirtz\Cms\Models\Queries\EntryQuery<\Hirtz\Cms\Tenant\Models\Entry>
@@ -13,21 +14,21 @@ class EntryQuery extends \Hirtz\Cms\Models\Queries\EntryQuery
 {
     use TenantQueryTrait;
 
-    #[\Override]
+    #[Override]
     public function whereIndex(): static
     {
         return parent::whereIndex()
             ->andWhereCurrentTenant();
     }
 
-    #[\Override]
+    #[Override]
     public function whereSlug(string $slug): static
     {
         return parent::whereSlug($slug)
             ->andWhereCurrentTenant();
     }
 
-    #[\Override]
+    #[Override]
     public function selectSitemapAttributes(): static
     {
         return parent::selectSitemapAttributes()
