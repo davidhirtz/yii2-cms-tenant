@@ -1,5 +1,7 @@
 ## 3.0.0
 
+- `Models\Entry` no longer overrides `$slugTargetAttribute`, which the CMS bundle removed along with the entry
+  slug columns; uniqueness is scoped through `Permalink::$uriTargetAttribute` instead
 - `Models\Queries\PermalinkQuery::whereUri()` scopes the site controller's permalink lookup to the current
   tenant, taking over from the `EntryQuery::whereSlug()` override the controller no longer calls
 - Scoped permalinks to a tenant. Added `Models\Permalink` and `Models\Queries\PermalinkQuery`, both

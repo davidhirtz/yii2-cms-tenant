@@ -62,7 +62,7 @@ class EntryPermalinkTest extends TestCase
     protected function findPermalink(Entry $entry): ?Permalink
     {
         return Permalink::find()
-            ->whereModel($entry::class, $entry->id)
+            ->whereModel($entry)
             ->whereLanguage()
             ->one();
     }

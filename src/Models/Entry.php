@@ -20,13 +20,6 @@ use Yii;
  */
 class Entry extends \Hirtz\Cms\Models\Entry
 {
-    /** @var string[]|string|null */
-    public array|string|null $slugTargetAttribute = [
-        'tenant_id',
-        'slug',
-        'parent_slug',
-    ];
-
     /**
      * @return array<string, mixed>|false
      */
