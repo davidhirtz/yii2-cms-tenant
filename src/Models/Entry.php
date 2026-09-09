@@ -8,7 +8,6 @@ use Hirtz\Skeleton\I18n\Lang;
 use Hirtz\Cms\Models\Queries\EntryQuery;
 use Hirtz\Cms\Tenant\Behaviors\EntryTenantBehavior;
 use Override;
-use Yii;
 
 /**
  * This class can either be extended by the actual implementation or used as a reference for the implementation of the
@@ -46,7 +45,7 @@ class Entry extends \Hirtz\Cms\Models\Entry
     }
 
     /**
-     * @return EntryQuery<\Hirtz\Cms\Models\Entry>
+     * @return EntryQuery<static>
      */
     #[Override]
     public function findSiblings(): EntryQuery
@@ -54,9 +53,6 @@ class Entry extends \Hirtz\Cms\Models\Entry
         return parent::findSiblings()->andWhere(['tenant_id' => $this->tenant_id]);
     }
 
-    /**
-     * Scopes the permalink to this entry's tenant, so two tenants can serve the same URL.
-     */
     #[Override]
     public function getPermalinkAttributes(): array
     {

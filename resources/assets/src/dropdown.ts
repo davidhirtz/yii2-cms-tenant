@@ -5,25 +5,29 @@ document.addEventListener('htmx:load', (event) => {
     $container.querySelectorAll<HTMLSelectElement>('[data-id="tenant"]').forEach($dropdown => {
         const $target = $dropdown.closest('form')!.querySelector<HTMLSelectElement>(targetSelector);
 
-        $dropdown.addEventListener('change', () => {
-            const url = new URL(location.href);
-            url.searchParams.set('tenant', $dropdown.value);
+        if ($target) {
+            $dropdown.addEventListener('change', () => {
+                const url = new URL(location.href);
+                url.searchParams.set('tenant', $dropdown.value);
 
-            $target.disabled = true;
+                $target.disabled = true;
 
-            fetch(url)
-                .then(response => response.text())
-                .then(text => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(text, 'text/html');
-                    const $newDropdown = doc.querySelector(targetSelector);
+                fetch(url)
+                    .then(response => response.text())
+                    .then(text => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(text, 'text/html');
+                        const $newDropdown = doc.querySelector(targetSelector);
 
-                    $target.innerHTML = $newDropdown.innerHTML || '';
-                    $target.disabled = false;
+                        $target.innerHTML = $newDropdown?.innerHTML || '';
+                        $target.disabled = false;
 
-                    $target.dispatchEvent(new Event('change'));
-                });
-        });
+                        $target.closest<HTMLDivElement>('.form-row')!.hidden = $target.childElementCount <= 1;
+
+                        $target.dispatchEvent(new Event('change'));
+                    });
+            });
+        }
     });
 });
 //

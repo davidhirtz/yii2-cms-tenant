@@ -4,6 +4,9 @@
   },
   "private": true,
   "scripts": {
-    "build": "./node_modules/.bin/esbuild assets/src/dropdown.ts --minify --outfile=assets/dist/dropdown.js"
+    "build": "./node_modules/.bin/esbuild resources/assets/src/dropdown.ts --minify --outfile=resources/assets/dist/dropdown.js"
+  },
+  "allowScripts": {
+    "esbuild@0.27.1": true
   }
 }

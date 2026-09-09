@@ -19,8 +19,6 @@ class EntryParentIdSelectField extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\Fi
     protected function configure(): void
     {
         $this->attributes['data-id'] ??= 'parent';
-        $this->attributes['promptAttributes']['data-value'][0] = $this->model->tenant->getAbsoluteUrl();
-
         parent::configure();
     }
 
