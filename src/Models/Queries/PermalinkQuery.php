@@ -14,4 +14,11 @@ use Hirtz\Tenant\Models\Queries\Traits\TenantQueryTrait;
 class PermalinkQuery extends \Hirtz\Cms\Models\Queries\PermalinkQuery
 {
     use TenantQueryTrait;
+
+    #[\Override]
+    public function whereUri(string $uri, ?string $language = null): static
+    {
+        return parent::whereUri($uri, $language)
+            ->andWhereCurrentTenant();
+    }
 }
