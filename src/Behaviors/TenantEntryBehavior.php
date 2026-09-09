@@ -26,6 +26,9 @@ class TenantEntryBehavior extends Behavior
 {
     use EntryRelationTrait;
 
+    /**
+     * @return array<string, callable>
+     */
     #[Override]
     public function events(): array
     {

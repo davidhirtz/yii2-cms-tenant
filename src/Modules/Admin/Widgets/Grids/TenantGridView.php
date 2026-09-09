@@ -7,6 +7,9 @@ namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids;
 use Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids\Traits\TenantEntryGridViewTrait;
 use Override;
 
+/**
+ * @extends \Hirtz\Tenant\Modules\Admin\Widgets\Grids\TenantGridView<\Hirtz\Tenant\Modules\Admin\Data\TenantActiveDataProvider>
+ */
 class TenantGridView extends \Hirtz\Tenant\Modules\Admin\Widgets\Grids\TenantGridView
 {
     use TenantEntryGridViewTrait;

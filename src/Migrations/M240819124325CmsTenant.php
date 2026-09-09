@@ -80,6 +80,9 @@ class M240819124325CmsTenant extends Migration
         });
     }
 
+    /**
+     * @return array<array-key, string>
+     */
     protected function getEntryCountAttributeNames(): array
     {
         return array_map(fn ($lang) => Yii::$app->getI18n()->getAttributeName('entry_count', $lang), $this->getLanguages());

@@ -13,9 +13,15 @@ use Yii;
 
 trait TenantEntryGridViewTrait
 {
+    /**
+     * @return Column<Tenant>|null
+     */
     protected function getEntryCountColumn(): ?Column
     {
-        return BadgeColumn::make()
+        /** @var BadgeColumn<Tenant> $column */
+        $column = BadgeColumn::make();
+
+        return $column
             ->property(Entry::instance()->getTenantEntryCountAttributeName())
             ->title(Lang::t('cms', 'COMMON_ENTRIES'))
             ->url(fn (Tenant $tenant) => ['/admin/cms/entry/index', 'tenant' => $tenant->id]);

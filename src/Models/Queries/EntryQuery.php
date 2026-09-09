@@ -6,6 +6,9 @@ namespace Hirtz\Cms\Tenant\Models\Queries;
 
 use Hirtz\Tenant\Models\Queries\Traits\TenantQueryTrait;
 
+/**
+ * @extends \Hirtz\Cms\Models\Queries\EntryQuery<\Hirtz\Cms\Tenant\Models\Entry>
+ */
 class EntryQuery extends \Hirtz\Cms\Models\Queries\EntryQuery
 {
     use TenantQueryTrait;

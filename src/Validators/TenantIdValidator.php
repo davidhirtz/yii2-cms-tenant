@@ -17,6 +17,7 @@ use yii\validators\Validator;
  */
 class TenantIdValidator extends Validator
 {
+    /** @var string[] */
     public $attributes = ['tenant_id'];
     public $skipOnEmpty = false;
 

@@ -9,6 +9,8 @@ use Hirtz\Cms\Tenant\Models\Entry;
 use Override;
 
 /**
+ * @extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField<Entry>
+ *
  * @property Entry $model
  */
 class EntryParentIdSelectField extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField
@@ -22,6 +24,9 @@ class EntryParentIdSelectField extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\Fi
         parent::configure();
     }
 
+    /**
+     * @return EntryQuery<Entry>
+     */
     #[Override]
     protected function getEntryQuery(): EntryQuery
     {

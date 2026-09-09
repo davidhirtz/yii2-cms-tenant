@@ -31,6 +31,9 @@ trait EntryTenantGridViewTrait
             : null;
     }
 
+    /**
+     * @return array<int, string>
+     */
     protected function getTenantDropdownItems(): array
     {
         return array_map(fn (Tenant $tenant) => $tenant->name, TenantCollection::getAll());

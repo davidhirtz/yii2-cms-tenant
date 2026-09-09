@@ -29,6 +29,9 @@ use yii\db\BaseActiveRecord;
  */
 class EntryTenantBehavior extends Behavior
 {
+    /**
+     * @return array<string, callable>
+     */
     #[Override]
     public function events(): array
     {
@@ -41,9 +44,12 @@ class EntryTenantBehavior extends Behavior
         ];
     }
 
+    /**
+     * @return TenantQuery<Tenant>
+     */
     public function getTenant(): TenantQuery
     {
-        /** @var TenantQuery $relation */
+        /** @var TenantQuery<Tenant> $relation */
         $relation = $this->owner->hasOne(Tenant::class, ['id' => 'tenant_id']);
         return $relation;
     }
@@ -130,6 +136,9 @@ class EntryTenantBehavior extends Behavior
             : 'entry_count';
     }
 
+    /**
+     * @return array<string, Tenant|null>
+     */
     public function getTenantRouteParams(): array
     {
         $tenantId = $this->owner->getAttribute('tenant_id');
