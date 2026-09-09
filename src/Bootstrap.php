@@ -5,7 +5,9 @@ declare(strict_types=1);
 namespace Hirtz\Cms\Tenant;
 
 use Hirtz\Cms\Models\Entry;
+use Hirtz\Cms\Models\Permalink;
 use Hirtz\Cms\Models\Queries\EntryQuery;
+use Hirtz\Cms\Models\Queries\PermalinkQuery;
 use Hirtz\Cms\Modules\Admin\Data\EntryActiveDataProvider;
 use Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryActiveForm;
 use Hirtz\Cms\Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField;
@@ -47,6 +49,8 @@ class Bootstrap implements BootstrapInterface
             EntryParentIdSelectField::class => Modules\Admin\Widgets\Forms\Fields\EntryParentIdSelectField::class,
             EntryQuery::class => Models\Queries\EntryQuery::class,
             PageCache::class => Filters\PageCache::class,
+            Permalink::class => Models\Permalink::class,
+            PermalinkQuery::class => Models\Queries\PermalinkQuery::class,
             SectionParentEntryGridView::class => Modules\Admin\Widgets\Grids\SectionParentEntryGridView::class,
             TenantGridView::class => Modules\Admin\Widgets\Grids\TenantGridView::class,
         ];

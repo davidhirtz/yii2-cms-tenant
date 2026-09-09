@@ -61,6 +61,18 @@ class Entry extends \Hirtz\Cms\Models\Entry
         return parent::findSiblings()->andWhere(['tenant_id' => $this->tenant_id]);
     }
 
+    /**
+     * Scopes the permalink to this entry's tenant, so two tenants can serve the same URL.
+     */
+    #[Override]
+    public function getPermalinkAttributes(): array
+    {
+        return [
+            ...parent::getPermalinkAttributes(),
+            'tenant_id' => $this->getAttribute('tenant_id'),
+        ];
+    }
+
     public function getEntryTenantBehavior(): EntryTenantBehavior
     {
         /** @var EntryTenantBehavior $behavior */

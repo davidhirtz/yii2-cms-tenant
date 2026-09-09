@@ -1,5 +1,9 @@
 ## 3.0.0
 
+- Scoped permalinks to a tenant. Added `Models\Permalink` and `Models\Queries\PermalinkQuery`, both
+  registered in `Bootstrap`, `Entry::getPermalinkAttributes()`, and migration `M260909140000PermalinkTenant`,
+  which adds `tenant_id` to the permalink table and widens its unique index to `(tenant_id, language, uri)`.
+  Without it two tenants cannot serve the same slug: the second one to be saved silently lost its permalink
 - Skipped version 2 for major refactor to align with other packages
 - Removed `TenantIdFieldBehavior`
 - Renamed `TenantDropdownTrait`, `EntryCountColumnTrait` and `AssetBundle`
