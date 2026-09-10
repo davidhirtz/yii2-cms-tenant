@@ -35,15 +35,6 @@ class Entry extends \Hirtz\Cms\Models\Entry
             : false;
     }
 
-    #[Override]
-    public function getRouteParams(): array
-    {
-        return [
-            ...parent::getRouteParams(),
-            ...$this->getEntryTenantBehavior()->getTenantRouteParams(),
-        ];
-    }
-
     /**
      * @return EntryQuery<static>
      */

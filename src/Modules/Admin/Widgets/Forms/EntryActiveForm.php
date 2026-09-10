@@ -34,4 +34,10 @@ class EntryActiveForm extends \Hirtz\Cms\Modules\Admin\Widgets\Forms\EntryActive
                 [$this->getTenantIdField()],
             ];
     }
+
+    #[Override]
+    protected function getSlugBaseRouteParams(): array
+    {
+        return $this->model->getEntryTenantBehavior()->getTenantRouteParams();
+    }
 }
