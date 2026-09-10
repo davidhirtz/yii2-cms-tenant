@@ -6,6 +6,7 @@ namespace Hirtz\Cms\Tenant\Models\Queries;
 
 use Hirtz\Cms\Tenant\Models\Permalink;
 use Hirtz\Tenant\Models\Queries\Traits\TenantQueryTrait;
+use Override;
 
 /**
  * @template T of Permalink
@@ -15,7 +16,7 @@ class PermalinkQuery extends \Hirtz\Cms\Models\Queries\PermalinkQuery
 {
     use TenantQueryTrait;
 
-    #[\Override]
+    #[Override]
     public function whereUri(string $uri, ?string $language = null): static
     {
         return parent::whereUri($uri, $language)

@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids;
 
 use Hirtz\Cms\Tenant\Modules\Admin\Widgets\Grids\Traits\TenantEntryGridViewTrait;
+use Hirtz\Tenant\Modules\Admin\Data\TenantActiveDataProvider;
 use Override;
 
 /**
- * @extends \Hirtz\Tenant\Modules\Admin\Widgets\Grids\TenantGridView<\Hirtz\Tenant\Modules\Admin\Data\TenantActiveDataProvider>
+ * @extends \Hirtz\Tenant\Modules\Admin\Widgets\Grids\TenantGridView<TenantActiveDataProvider>
  */
 class TenantGridView extends \Hirtz\Tenant\Modules\Admin\Widgets\Grids\TenantGridView
 {

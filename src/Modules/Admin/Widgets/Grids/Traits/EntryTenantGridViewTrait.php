@@ -25,6 +25,7 @@ trait EntryTenantGridViewTrait
 
         return count($items) > 1
             ? FilterDropdown::make()
+                ->default(false)
                 ->label($tenant->name ?? Lang::t('tenant', 'TENANT_NAME_PLURAL'))
                 ->items($this->getTenantDropdownItems())
                 ->paramName($this->tenantParamName)
