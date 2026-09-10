@@ -68,13 +68,14 @@ class M260909140000PermalinkTenant extends Migration
         $permalinks = $db->quoteTableName($schema->getRawTableName(Permalink::tableName()));
         $entries = $db->quoteTableName($schema->getRawTableName($entry::tableName()));
 
-        // Filtered by `model`, so a category sharing an id with an entry cannot inherit its tenant.
+        // Matched on the canonical model class the permalink stores, and filtered by it so a category sharing an id
+        // with an entry cannot inherit its tenant.
         $this->execute("
             UPDATE $permalinks AS [[permalink]]
             INNER JOIN $entries AS [[entry]]
                 ON [[entry]].[[id]] = [[permalink]].[[model_id]]
             SET [[permalink]].[[tenant_id]] = [[entry]].[[tenant_id]]
-            WHERE [[permalink]].[[model]] = {$db->quoteValue($entry::class)}
+            WHERE [[permalink]].[[model]] = {$db->quoteValue($entry->getPermalinkModelClass())}
         ");
     }
 }
