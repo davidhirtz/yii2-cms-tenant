@@ -61,7 +61,6 @@ class Bootstrap implements BootstrapInterface
 
         $app->setModule('cms', [
             ...(Yii::$app->getModules()['cms'] ?? []),
-            'enableI18nTables' => false,
         ]);
 
         $app->setMigrationNamespace('Hirtz\Cms\Tenant\Migrations');

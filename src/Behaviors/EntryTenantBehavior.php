@@ -131,9 +131,7 @@ class EntryTenantBehavior extends Behavior
 
     public function getTenantEntryCountAttributeName(): string
     {
-        return $this->owner::getModule()->enableI18nTables
-            ? Yii::$app->getI18n()->getAttributeName('entry_count')
-            : 'entry_count';
+        return 'entry_count';
     }
 
     /**
