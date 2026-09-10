@@ -10,8 +10,6 @@ use Override;
 use Yii;
 
 /**
- * Scopes a permalink to one tenant, so two tenants can serve the same URL.
- *
  * @property int|null $tenant_id
  */
 class Permalink extends \Hirtz\Cms\Models\Permalink
